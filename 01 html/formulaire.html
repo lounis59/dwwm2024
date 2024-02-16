@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>BangBang</h1>
+    <!-- un formulaire se trouve forcement dasn une balise form
+            celle ci prendra au moins 2 attributss
+                action indique quelle page devra traiter le formulaire 
+                methode indique la methode d'envoie des donnees 
+                    en GET les information seront visible dans l'url
+                    en POST elle seront transmise de facon cacher dan le corp de la requete-->
+    <form action="https://www.google.com/search" method="get" target="_blank">
+        <!-- le label permt d'indiquer le nom d'un champs du formulaire l'attribut for permet de selectioner le champ de meme id lorsque l'on ckique sur le label-->
+        <label for="search">Votre Recherche</label>
+        <!-- les input sont differant type de champ l'attributs type permet d'indiquer le type du champs, le modifiant en consequance .
+        chaque champs d'un formulaires doit avoir un nom different (name)-->
+        <input type="text" name="q" id="search">
+        <!-- l'input de type submit permet de creer une validation du formulaire 
+        on peut ossi utiliser une balise "<button></button>"-->
+        <input type="submit" value="Recherche">
+    </form>
+    <!-- la balise hr sert a faire une ligne separatrice-->
+    <hr>
+    <form action="formulaire.html" method="get">
+        <label for="birthday">Date de naissance :</label>
+        <!-- le type date permet de selectionner une date dans un calendrier-->
+        <input type="date" name="birthday" id="birthday" required>
+        <br>
+        <!-- le type color permet de selectioner une couleur -->
+        <label for="color">couleur favorite</label>
+        <input type="color" name="color" id="color">
+        <br>
+        <!-- Verifie si le texte resemble a une adresse email
+            placeholder permet d'afficher un texte dans le champ qui s'efface quand du texte est rentré (souvent utiliser a la place du label)
+            autofocus permet qu'au chargement de la page le curseur soit dejat actifs dans le champs -->
+        <label for="email">votre email</label>
+        <input type="email" name="email" id="email" placeholder="Entrer votre adresse Email" autofocus>
+        <br>
+        <!-- le type password remplace lescharactere par des points-->
+        <label for="password">Votre mot de passe</label>
+        <input type="password" name="password" id="password">
+        <br>
+        <!-- l'inpute de type file permet l'upload de fichier 
+            si l'attribut multiple est ajoute on peut televerser plusieur fichiers-->
+        <label for="CV">Votre CV</label>
+        <input type="file" name="CV" id="CV" multiple>
+        <br>
+        <!-- textarea permet d'afficher une grande zone de texte            pouvant acceuillir plusieur ligne 
+            par defaut sa taille est modifiable par l'utilisateur et sa taille de basse est representait par cols et rows
+        sur les champs input si on souhaite une valeur par defaut il faut ajouter l'attribue value 
+        pour les textarea si on souhaite une valeur pardefaut il faut la mettre entre c'est balise ouverture et fermeture
+        l'attribut disabled permet de desactiver un champs-->
+        <label for="comm">un commentaire ?</label>
+        <textarea name="comm" id="comm" cols="30" rows="10"></textarea>
+        <br>
+        <!-- la balise fielset permet de créer un cadre entourant plusieiur champ 
+        si une balise legend est ajouter celle si viendra se placer sur le cadre-->
+        <fieldset>
+            <legend>quel categorie appreciez vous ?</legend>
+            <!-- les type checkbox permette de generer des cases a cocher si une n'est donnee l'information transmise est on 
+            si on souhaite cocher une case par default on lui ajouter checked -->
+            <input type="checkbox" name="aventure" id="aventure" value="av">
+            <label for="aventure">Aventure</label>
+            <br>
+            <input type="checkbox" name="romantique" id="aventure" value=ro">
+            <label for="romantique">romantique</label>
+            <br>
+            <input type="checkbox" name="horreur" id="horreur" value="ho">
+            <label for="horreur">horreur</label>
+        </fieldset>
+        <fieldset>
+            <legend>quel est votre langue ?</legend>
+            <!-- le type radio affiche un cercle qui peut etre selectioner mes pas deselectioner 
+            si un autre radio portant le meme nom est selectionner alor cela deselection les autre
+            il faut pencer a leur donner des value differante sinon peu importe le quelle est selectioner on aura juste le mot on-->
+            <label for="html">HTML </label>
+            <input type="radio" name="langage" id="html" value="html">
+            <br>
+            <label for="css">CSS</label>
+            <input type="radio" name="langage" id="css" value="css">
+            <br>
+            <label for="js">JS</label>
+            <input type="radio" name="langage" id="js" value="js">
+        </fieldset>
+        <label for="repas">choisi ton repas</label>
+        <!-- la balise selecte est un menu deroulent avec autant d'element selectioner avec la balise option 
+        si l'attribut multiople est ajoute le menui deroulent se transforme en menue ouvert avec plusieur element selectionable 
+        si on veut selectioner une option par defaut on peut lui ajouter l'attribut selected-->
+        <select name="repas" id="repas">
+            <option value="pizza">Pizza !!!</option>
+            <option value="pasta">Pate !!!</option>
+            <option value="burger">Burgeur !!!</option>
+        </select>
+        <!-- le type hidden n'est pas visible par l'utilisateur-->
+        <input type="hidden" name="test" value="rien">
+        <br>
+        <button type="submit">envoyer</button>
+    </form>
+</body>
+
+</html>

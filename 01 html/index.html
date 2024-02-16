@@ -1,0 +1,140 @@
+<!-- Indique que le document est en Html-->
+<!DOCTYPE html>
+<!-- Contien toute les données hTML est indique la langue du fichier  -->
+<html lang="fr">
+<!-- Contien les donn"es luent par le navigateur anant de charger la page -->
+
+<head>
+      <!-- Indique le type de la police -->
+      <meta charset="UTF-8">
+      <!-- Indique au navigateur d'adapter la taille du viewport à la largeur de l'appareil-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Indique le titre de la page sur l'onglet ou en favories-->
+      <title>Ma premiere page !</title>
+      <!-- Balise non obligatoire : gerer la compatibilité avec internet explorer -->
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- Indique l'auteur de la page -->
+      <meta name="author" content="Lounis HABROUCHE">
+      <!-- Description de la page par les moteur de recherche -->
+      <meta name="description" content="Une super page avec les bases du html">
+      <!-- Mots cles utiliser dans le moteur de recherche -->
+      <meta name="keywords" content="html, head, balises, meta tag">
+      <!-- la balise link permet de lier un fichier  a notre page html.
+            L'attribue "rel" indique le type de fichier lié,ici un icon de racourcie
+            l'atribut "href" indique le chemin vers ce fichier 
+            l'atribut "type" qui est optionel permet de preciser le type mime du fichier  -->
+      <link rel="shortcut icon" href="./img/Vector.png" type="image/x-icon">
+</head>
+<!-- Contien le corps de la page, c'est a dire tout le contenue visible par l'utilisateur -->
+
+<body>
+      <!-- Balyse de type block sans effet mais avec un nom particuliers (balises semantique)
+      les balise de type bloc, prennents par default toute la largeur de leur parent , vont a la ligne et peuvent contenir n'importe quel balise 
+            l'attribue univercelle id permet d'identifier une balise par un nom que l'on choisi
+            cela facilitera son ciblage en CSS ou JS 
+            ainsi que la cretion d'ancre avec un lien 
+            le nom choisi doit etre unique-->
+      <header id="top"></header>
+      <!-- l'attribue univercelle class permet ossi d'identifier par un nim que l'on choisit facilitant la aussi sa selection en CSS ou JS une classe peut appareitre plusieur fois dans une âge  un espace pemet d'ajouter plusieur classes diferentte-->
+      <main class="important"></main>
+      <footer class="important chaussette"></footer>
+      <nav></nav>
+      <aside></aside>
+      <!--balise de type bloc avec effet ou regle-->
+      <section>pas d'effet particulier mais une regle indique qu'il faut un titre a une section (voir les balise titre
+            plus bas )</section>
+      <article>meme regle que la section</article>
+      <p>cette balise contien par defaut une marge et n'a le droit de contenire que du texte ou des balises "inline"
+      </p>
+      <!-- les balise ul, ol, et menu ne peuve contenir que des balise "li"-->
+      <ul>
+            <li>ul est "unordered list" , une liste sans ordre precis.</li>
+            <li>Elle peut contenire que des balise "li"</li>
+            <li>chaque "li" represente un element de la liste</li>
+      </ul>
+      <ol>
+            <li>ol est "ordered list" , une liste avec un ordre precis </li>
+            <li>les "li" ne peuve etre utiliser que dans les balise ul,ol ou menu</li>
+            <li>les "li" sont des bloc classique pouvant contenire n'importe quel autre balise .</li>
+      </ol>
+      <menu>
+            <li>le menu est equivalent de ul mais avec un nom qui contiendra un menu</li>
+      </menu>
+      <!-- les balise de titre , elle sont 6 , indiquant l'importance du titre , le plus important etant le h1 et le moin important le h6-->
+      <h1>Titre important </h1>
+      <h6>titre peu important </h6>
+      <div>
+            la div est la balise par defaut de type bloc . elle n'a aucune regle de semantique .elle sert lorsque l'on
+            souhaite diviser
+
+      </div>
+      <!-- les balises inline, ces balises ont une largeur et une hauter equivalente a leur contenue , et ne vont a la ligne , que si il n'y a plus de place sur la largeur -->
+
+      <p>
+            <!-- il ne faut pas utiliser strong ou b pour mettre du texte en gras .(cela sera fait en css)
+                  doit etre utiliser pour indiquer l'impotance d'un texte .
+                  b doit etre utilise pour l'attentiton du lecteur sur un contenue 
+            -->
+            <strong>Lorem ipsum dolor sit</strong> amet consectetur adipisicing elit. Dolorem similique ea,
+            necessitatibus sed <b> minus expedita iusto</b>
+            <!-- la balise br permet de faire des saut a la ligne attention br ne doit pas utiliser pour crer de l'espacement -->
+            <br>
+            <!-- les balises em et i mettre le texte en italique et ne doivent pas etre utiliser simplement pour cela .
+                  em doit etre utiliser pour mettre l'emphase sur un morceau de texte 
+                  i doit etre utiliser pour une citation ,une partie du texte dui se diferencie du reste -->
+            <em>error quam repellendus? </em>
+            <i>Illum laudantium voluptas at amet et </i>
+            <!-- u permet de mettre en avant un element de texte (par exemple une corection a faire ) en soulignent celui ci , il ne doit pa etre utiliser pour souligner .-->
+            <u>sit rerum</u> illo cumque tempora!
+      </p>
+      <p>
+            <!-- la balise abbr indique la presence d'une abreviation .
+            l'attribue title peut etre utiliser sur nimporte quzel balise , mais on vera souvent sur les abbr il permet d'informer sur le contenue de la balise (souvent sous la forme d'info bulle )
+            sur les balises abbr il est utiliser pour informer sur la definition de l'abbreviation-->
+            <abbr>HTML</abbr>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt iure
+            consectetur <abbr title="Cascading Style Sheet">CSS</abbr>magni eos animi nisi iste,<br>
+            <!-- la balise a permet de crer une ancre ,c'est a dire un lien vers une autre page ,un site externe ou alors une autre partie de la page .
+            elle contiendra l'atribue "href" pour dirigée l'utilisateur.
+            et optionellement on peur lui ajouter l'atribut target avec la valeur "_blank" pour ouvrire le lien dans un nouvelle onglet . -->
+            <a href="../formulaire.html">voluptate aut </a>hic quae <a href="https://www.google.com/search?q=pizza"
+                  target="_blank">blanditiis molestias</a> saepe aperiam vitae totam exercitationem rem autem.
+      </p>
+      <p>
+            <!-- la balise span n'a aucun effe particulier , elle sert juste a selectionner une partie du texte afin de de le modifier en CSS ou JS-->
+            <span>Lorem ipsum dolor sit amet consectetur </span>adipisicing elit. Perferendis fuga nostrum eum aliquid
+            recusandae accusantium blanditiis,
+            <!-- la balise img permet l'affichage d'une image .
+            elle contiendra au moins les attribut suivant :
+                  src permet permet d'indiquer le chemin vers l'image a charger
+                  alt permet d'indiquer une description a afficher si le chargement de l'image echoue
+            on peut optionellement ajouter d'autre atributs :
+                  height et widht pour la largeur et la hauteur
+                  loading pour indiquer a quel moment cherger l'image
+                  decoding pour preciser si l'image doit etre decode facon synchrone ou asynchrone.-->
+            <img src="./img/gif mario-yoshi.gif" alt="gif mario yoshi"> quo maiores
+            inventore deserunt et ipsum maxime dolor,<img src="./img/gif mario-yoshi.gif" alt="gif mario yoshi"
+                  width="100" height="100" loading="lazy" decoding="async"> illum facere similique eius magni vero?
+      </p>
+      <a href="#top">haut de page</a>
+      <!-- cas particuliers -->
+      <!-- la balise video prend en attributs :
+                  src pour indiquer la source de la video
+                  controls si on veut afficher les controles de la video
+                  loop si on veut la jouer en boucle 
+                  muted si on veut que le sons soit couper par defaut 
+                  autoplay si on veut quelle se joue automatiquement (ne fonctione qu'avec l'attribut muted )
+                  poster si on veut afficherune image de presentation -->
+      <video src="../01 html/video/pexels-宇航-钱-7575691 (2160p).mp4" width="200" controls loop muted></video>
+      <!-- la balise fonctionne de la meme facon -->
+      <audio src="" controls loop></audio>
+      <!-- iframe permet d'integrer une page externe dans notre pâge-->
+      <iframe src="./formulaire.html" frameborder="5"></iframe>
+      <!-- la balise pre gardera les espace et saut a la ligne utilisés-->
+      <pre>
+            Lorem ipsum dolor
+             sit amet consectetur                adipisicing elit. Magnam veritatis accusamus porro      deleniti eius molestias incidunt consequatur itaque 
+             provident cumque natus minima, rerum, maiores dolores beatae? Impedit necessitatibus explicabo cum!
+      </pre>
+</body>
+
+</html>
