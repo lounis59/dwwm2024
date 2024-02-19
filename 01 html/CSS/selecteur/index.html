@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selecteur CSS</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        header {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header>h1>a>{Teston notre notre selecteur} -->
+    <header style="background-color: blueviolet;">
+        <h1>
+            <a href="https://www.google.fr/search?q=carbonade" target="_blank">
+                Testons nos Selecteur
+            </a>
+        </h1>
+    </header>
+    <!-- main>(p>lorem)+article>p{Gros article tres long} -->
+    <main>
+        <p>Lorem ipsum dolor <span> sit amet</span> consectetur adipisicing elit. Dicta aliquid excepturi <span> qui
+                numquam maxime</span>, quibusdam necessitatibus <span> error omnis, similique</span> recusandae quae
+            nihil voluptate. Minima, sed quasi enim explicabo pariatur vel.</p>
+        <article>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo consequatur quidem! Nemo beatae
+                cumque vel vero ipsum officia, consectetur veniam repellendus! Quis molestiae quaerat ipsam tempore
+                delectus nemo eveniet.
+            </p>
+        </article>
+        <article>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi illo consequatur quidem! Nemo beatae
+                cumque vel vero ipsum officia, consectetur veniam repellendus! Quis molestiae quaerat ipsam tempore
+                delectus nemo eveniet.
+            </p>
+        </article>
+    </main>
+    <!-- footer>ul>li*6>{Menu $} -->
+    <footer>
+        <ul>
+            <li id="Menu Important">
+                Menu 1
+            </li>
+            <li>
+                <a href="https://www.amazon.fr">Amazon</a>
+            </li>
+            <li class="peuImportant">
+                Menu 3
+            </li>
+            <li>
+                <a href="https://www.marquiset.fr">Nolwenn</a>
+            </li>
+            <li class="peuImportant">
+                Menu 5
+            </li>
+            <li>
+                <a href="https://fr.wikipedia.org/qwiki/amazonie">Wikipedia</a>
+            </li>
+        </ul>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+/*
+    Pour integrer du CSS a une page HTML, 3 solution s'offre a nous.
+        1. integrer l'atribut "style" a la balise choisi
+        2. ajouter la balis style dans le head
+        3.creer un fichier CSS est le lier avec une balise link
+    Pour ecrire du CSS
+    On va commencer par ecrire un "selecteur" qui permettra d'indiquer ce que l'on souhaite cibler 
+    puis entre acolade les regle a apliquer sur notre cible
+
+    Une regle s'ecrit de la facon suivante :
+        "nom de la regle" : "valeur a lui donner";
+    Par exemple:
+        background-color: red;
+
+    Par defaut le code est lu de haut en bas 
+    Donc si une regle est impose par du code puis contredite plus bas c'est la derniere qui s'aplique 
+    une regle avec "!important" sera toujour prioritaire 
+        (plus de detail sur les priorités en bas du cours)
+*/
+
+header {
+    font-style: italic;
+    background-color: chartreuse !important;
+    font-size: 20px;
+}
+
+/* ----------- Enfant direct ou indirect ---------- */
+
+main p {
+    /* Selectionne tous les p se trouvent dans un main peu importe si d'autres balise se trouvent entre eux. */
+    background-color: lightsalmon;
+}
+
+main>p {
+    /* Selectionne tous la p se trouvant directement dans un main 
+    excluant tous ceux se trouvant dans une autre balise  */
+    background-color: olive;
+}
+
+/*  -------------Frere direct ou indirect------------- */
+
+p~article {
+    /* Selectione tous les article suivant la balise p (au meme niveaux ) */
+    color: darkblue;
+}
+
+p+article {
+    /* Selectionne tout article se trouvant juste aprés un p */
+    color: darkgoldenrod;
+}
+
+/*  -----------Pseudo classe------------  */
+/* Les pseudo classe sont des selecteur s'ecrivant ainsi ":nom" */
+
+li:hover {
+    /*  Au survol de l'element precedent la pseudo classe (ici au survol des li ) */
+    background-color: deeppink;
+}
+
+li:nth-of-type(3) {
+    /*  Selection le 3ème "li" d'une liste  
+        Existe ossi en partant de la fin ";nth-last-of-type()"*/
+    background-color: tomato;
+}
+
+li:nth-child(2) {
+    /* Selectionne le 2ème enfant si c'est un "li"
+        existe ossi en partant de la fin ":nth-last-child()" */
+    background-color: darkorange;
+}
+
+article:nth-child(2) {
+    font-size: 25px;
+}
+
+h1 a {
+    color: antiquewhite;
+}
+
+h1 a:active {
+    /* Lorsque que le lien est activé (au clique ) */
+    color: cyan;
+}
+
+h1 a:visited {
+    /* Lorsque le lien a dejat eter visiter */
+    color: red;
+}
+
+p span:not(:nth-of-type(2)) {
+    /* ":not()" permet d'exclur un element 
+        ici on selectionne tous le span dans un p exepte le second  */
+    color: magenta;
+}
+
+/* ------------ Les pseudo elements ------------- */
+/* Les pseudo ellement s'ecrivent ainsi "::nom" */
+
+article p::first-letter {
+    /* Selectionne la premiere lettres des p dans mes article */
+    font-size: 50px;
+}
+
+main>p::first-line {
+    /* Selectionne la premiere ligne des p directement enfant de main */
+    font-weight: bold;
+}
