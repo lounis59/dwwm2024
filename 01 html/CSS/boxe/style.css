@@ -18,6 +18,91 @@
 }
 
 header {
+    /* utiliser une image de fond  */
     background-image: url(../../img/samurai-battle-field-desktop-wallpaper-preview.jpg);
+    /* gerer la repetition d'image */
+    background-repeat: no-repeat;
+    /* Position d'image */
+    background-position: center;
+    /* Indique si l'image doit etre contenue ou couvrire l'element */
+    background-size: cover;
+}
+
+main {
+    background-color: rgb(167, 145, 187);
+}
+
+article {
+    /* Defini la largeur d'un element */
+    width: 45%;
+    /* Defini le display de l'element (block, inline,inline-block ou autre, dont 2 qui auront leurs cours dedier) */
+    display: inline-block;
+    /* 
+        Les proprietes de bordure "border-xxx" permette d'afficher la bordure d'un element
+        Elle peuven etre resume par la propriete "border" prenant les different valeurs separes d'un espace
+    */
+    /* border-color: black;
+    border-style: solid;
+    border-width: 5px; */
+    border: 5px solid black;
+    /* 
+        Le padding permet d'espacer le contenue avec sa bordure 
+        Les differente proprieter de padding peuvent etre resume par la proprieter padding
+        Si on lui donne 4 valeurs celle ci iront dans l'ordre du sens de laiguille d'une montre 
+        Si on lui donne 2 valeurs ce sera la premiere pour le top et le bottom la seconde pour right et left
+        et 1 seul valeur s'appliquera aux 4
+    */
+    /* padding-top: 5px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-right: 10px; */
+    /* padding: 10px 5px 10px 5px; */
+    padding: 10px 5px;
+    /* 
+        les proprieter de margin ajoute une marge a l'exterieur de la bordure elle suivent les meme regle que le padding
+    */
+    margin: 20px auto 20px 5px;
+}
+
+h1 {
+    font-size: 42px;
+    /* .8em == 0.8em */
+    padding: .8em .1em;
+    color: antiquewhite;
+    /* Gerer l'alignement du texte */
+    text-align: center;
+    /* Permet de "decorer" le texte (souligner, barrer...) */
+    text-decoration: underline wavy pink;
+}
+
+p {
+    font-size: 20px;
+}
+
+p::first-letter {
+    font-size: 2em;
+}
+
+footer {
+    background-color: chartreuse;
+    /* Indique une hauteur minimumsi le contenue est plus petit */
+    min-height: 50px;
+    /* 
+        On aura aussi l'inverse avec max-height une auteur a ne pas depasser
+        Ou height pour une hauteur fixe 
+        Et ces variante existe aussi pour la largeur width, min-width, max-width
+    */
+}
+
+li {
+    display: inline-block;
+    background-color: aqua;
+    /* Si l'element ne possede qu'une seule taille (ici la largeur de son contenue )
+    La secinde est selectionner par ratio (ici indiquant 1/1, la largeur et la hauteur doivent etre egal */
+    aspect-ratio: 1/1;
+    /* Arrondie les angles du block a 50% cela forme un cercle */
+    border-radius: 50%;
+    padding: 1rem 5px;
+    margin-left: 15%;
 
 }
