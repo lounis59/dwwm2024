@@ -105,3 +105,57 @@ main>p::first-line {
     /* Selectionne la premiere ligne des p directement enfant de main */
     font-weight: bold;
 }
+
+h1::before {
+    /* Ajoute un element avant le contenue du h1 (la regle "content" est obligatoire)  */
+    content: "super titre";
+}
+
+h1::after {
+    /* Ajoute un element aprés le contenue du h1 (la regle "content" est obligatoire)  */
+    content: "<- C'est faux";
+}
+
+/* --------- Classes, ID et attributs ----------- */
+
+#MenuImportant {
+    /*  Pour selectionner un element par son id , je fais preceder le nom de l'id par "#" */
+    font-size: 42px;
+    font-weight: bold;
+    color: red;
+}
+
+.peuImportant {
+    /* Pour selectionner des element par leur classe , je fais preceder le nom de la classe par un "." */
+    font-size: 8px;
+    color: gainsboro;
+}
+
+a[target] {
+    /* Avec les "[]" je peux selectionner des element via leurs attributs 
+        Ici je selectionne tout "a" ayant un attributs "target" */
+    font-family: cursive;
+}
+
+a[href*="amazon"] {
+    /* Selectionne tout "a" dont le href contitent le mot "amazon" */
+    font-family: monospace;
+}
+
+a[href$=".fr"] {
+    /* Selectionne tout "a" dont le href termine par ".fr" */
+    background-color: aquamarine;
+}
+
+a[href^="https"]::before {
+    /* Selectionne tout "a" dont le href commence par "https" */
+    content: "√";
+}
+
+/* ---------- Autres selecteur ----------- */
+
+*:not(h1) {
+    /* "*" signifie toute les balises
+        Ici je selectionnz tout sauf le h1 */
+    font-size: 18px;
+}
