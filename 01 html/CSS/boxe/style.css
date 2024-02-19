@@ -1,0 +1,23 @@
+*,
+::before,
+::after {
+    /* 
+        Plusieur balise ont une marge et un padding par default 
+        On peut travailler avec ou alor choisir de les remettre a 0
+     */
+    margin: 0;
+    padding: 0;
+    /* 
+        Lorsque l'on indique la taille d'un element par defaut cela ne prend en compte que sa boite de contenue le padding et la bordure s'ajouteront dessus 
+        En mode "border-box" la taille prend en compte la bordure et le padding
+        Exemple:
+            Pour un element avec un padding de 10px et une bordure de 5px
+            si je lui demande une largeur de 200px par defaut il fera 230px en border-box il fera 200px
+     */
+    box-sizing: border-box;
+}
+
+header {
+    background-image: url(../../img/samurai-battle-field-desktop-wallpaper-preview.jpg);
+
+}
