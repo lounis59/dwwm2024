@@ -104,5 +104,19 @@ li {
     border-radius: 50%;
     padding: 1rem 5px;
     margin-left: 15%;
+}
 
+div {
+    width: 40vw;
+    max-height: 90vh;
+    margin: 5px auto;
+}
+
+img {
+    width: 100%;
+    height: 20vh;
+    /* Fonctionne comme background-size mais adapter a une balise img et son parent */
+    object-fit: contain;
+    /* fonctione comme background-position mais adapte a une balise img et son parent */
+    object-position: center;
 }
