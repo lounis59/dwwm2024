@@ -159,3 +159,29 @@ a[href^="https"]::before {
         Ici je selectionnz tout sauf le h1 */
     font-size: 18px;
 }
+
+article p,
+li:nth-child(2),
+span:nth-of-type(2) {
+    /* La virgule est utiliser pour selectionner plusieur element en meme temp , meme s'il n'on rien avoir entre eux */
+    font-family: cursive;
+}
+
+/* On parlait du system de priorité en debut de cours 
+    Il existe un autre systeme qii rend prioritaire les element selectionner avec plus de precision
+    
+    Ce systeme est representer par 3 chiffre : "0,0,0"
+    
+    Le premier etant plus important que les suivant :
+    1,0,0 aura la priorite sur 0,15,9
+    0,1,0 aura la prioriter sur 0,0,8
+    0,7,0 aura la prioriter sur 0,5,0
+    
+    Chaque selecteur different fera augmenter un chiffre specifique :
+        une balise (div, header ...) fera evoluer le dernier chiffre 
+            main > p vaudra 0,0,2
+        une classe fera evoluer le second chiffre 
+            div.classCool vaudra 0,1,1
+        un id fera evoluer le premier chiffre 
+            #superID vaudra 1,0,0
+*/
