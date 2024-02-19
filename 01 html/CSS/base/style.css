@@ -1,0 +1,100 @@
+/* Importer une police d'ecriture */
+@font-face {
+    font-family: "BlakaHollow";
+    src: url(./font-family/BlakaHollow-Regular.ttf);
+}
+
+/* La racine de notre documentsur un fichier HTML cela represente la balise "html" */
+
+:root {
+    /* une variable CSS est representer par un mot preceder de "--"
+        Elle servira a contenir une valeur que l'on pourrat reutiliser a plusieur endroit du code */
+    --main-background-color: royalblue;
+    --main-text-color: pink;
+    --divTextSize: 10px;
+}
+
+body {
+    /* lorsque l'on met un background-color sur le body celui ci s'applique sur toute la page meme si le body lui est plus petit */
+    background-color: aquamarine;
+}
+
+.target1 {
+    /* indiquer plusieurs police d'ecriture permet au navigateur de tenter une autre solution si la premiere ne fonctionne pas */
+    font-family: "BlakaHollow", monospace, 'Times New Roman', Times, serif;
+    /* Pour utiliser une variable definie plus haut il faut ecrire le nom de la variable entre les parenthese suivant "var()" */
+    background-color: var(--main-background-color);
+    color: var(--main-text-color);
+    font-size: var(--divTextSize);
+}
+
+.target2 {
+    /* Les couleurs peuvent etre selectionner de diferente facon les mot clef predefinies qui offrent quelque dizaines 
+    Avec la fonction rgb() a la quelle on donne le niveaux de rouge de vert et de bleu que l'on souhaite separe de virgule 
+    C'est valeur allant de 0 a 255 */
+
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+
+}
+
+.target3 {
+    /*  Les valeur hexadecimal des couleurs sont representer par un # puis 6chiffre fonctionant par paire 
+    Les deux premiers represente le rouge
+    Les deux suivant le vert 
+    Les deux dernier le bleu */
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.target4 {
+    /* Le hsl est une representation des couleur sur une roue chromatique 
+    La premiere valeur est le degre sur la roue 
+    La seconde, le pourcentage de saturation
+    La troisieme le pourcentage de brillance */
+    background-color: hsl(0, 0%, 0%);
+    color: hsl(360, 100%, 100%);
+}
+
+.target5 {
+    /* rgba ou hsla prennet une quatrieme valeur etant un chiffre entre 0 et 1
+    Cla gere la transparence de la couleur a 0 elle est invisible a 1 totalement opaque */
+    background-color: rgba(red, green, blue, alpha);
+    color: hsla(hue, saturation, lightness, alpha);
+}
+
+.target6 {
+    /* differente unite de mesure sont possible 
+        la plus classique etant le pixel (px)
+        Une tres adaptative sera le em (1em vaut une taille de police */
+    font-size: 20px;
+    height: 2em;
+
+}
+
+.target7 {
+    /* rem represente la taille de la police a la racine du document 
+        Les % prennet un pourcentages du parent (ici le body n'a pas de hauteur fixe donc le % ne fonctionne pas) */
+    font-size: 2rem;
+    height: 20%;
+}
+
+.target8 {
+    /* Les vw represente un porcentage de la largeur du viewport
+        Les vh represente un pourcentage de la hauteur du viewport
+        On notera l'existence de dvw et dvh qui sont particulierment pratique sur format mobile car il prenne en compte les interface retractable des mobiles */
+    font-size: 5vw;
+    height: 20vh;
+}
+
+.target9 {
+    /*  vmax represente un pourcentage de l'axe le plus grand (si la largeur et plus grande que la hauteur c'est un pourcentage de la largeur et inversement )
+        vmin represente un pourcentage de l'axe le plus petit */
+    font-size: 5vmax;
+    height: 20vmin;
+}
+
+.target10 {
+    /* Il existe tous un tas d'otre mesure possible ,le cm ,le pc...mais celles qui precede sont les plus commune */
+    font-size: clamp(25px, 5vw, 40px);
+}
