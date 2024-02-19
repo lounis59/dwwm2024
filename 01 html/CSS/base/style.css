@@ -95,6 +95,8 @@ body {
 }
 
 .target10 {
-    /* Il existe tous un tas d'otre mesure possible ,le cm ,le pc...mais celles qui precede sont les plus commune */
+    /* Il existe tous un tas d'otre mesure possible ,le cm ,le pc...mais celles qui precede sont les plus commune
+    La fonction clamp permet de donner un minimum et un maximu a une taille variable 
+    Ici j'indique que ma police fera au minimum 25px au maximum 40px cela dependant de 5% de la largeur du viewport */
     font-size: clamp(25px, 5vw, 40px);
 }
