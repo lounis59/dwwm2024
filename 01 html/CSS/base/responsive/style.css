@@ -1,0 +1,114 @@
+body {
+    background-color: bisque;
+    margin: 0;
+}
+
+h1,
+h2 {
+    text-align: center;
+
+}
+
+article {
+    margin: 1rem 10px;
+    border: 1px solid grey;
+    padding: 0.5rem;
+}
+
+/* 
+    De nos jours on doit faire attention que nos application web soit bien adapter a l'affichage sur ordinateur comme sur mobile (et autre appareilentre les deux)
+    On a le choix de creer une premiere version soit pour l'apareil le plus grand soit le plus petit et d'adapter aux autre 
+    Mais c'est une meilleur pratique de commencer par le plus petit (mobile first)
+*/
+/* -------------------Media queries-------------- */
+/* 
+    Les media queries permete d'appliquer des uniquement sous certenne condition 
+    Cela n'efface pas se que l'on a ecrit avent 
+    on vient selement ajouter ou modiffier des regle pour adapter notre site 
+
+    Ici j'indique que les regle suivante s'applique selement si c'est un ecran et que la largeur minimum est de 500px
+*/
+
+@media screen and (min-width:500px) {
+    body {
+        background-color: lightgreen;
+    }
+
+    article {
+        display: inline-block;
+        width: 40%;
+    }
+}
+
+/*  un ecran d'au moin 900px */
+@media screen and (min-width:900px) {
+    body {
+        background-color: lightblue;
+    }
+
+    article {
+        width: 28%;
+    }
+}
+
+/* Si on va du plus grand vers le plus petit */
+@media screen and (max-width: 700px) {
+    /* Si on veut appliquer des regle que dans une fourchette de taille */
+}
+
+@media screen and (min-width:450px) and (max-width : 900px) {}
+
+/* Dans le cas de l'impression de la page  */
+@media print {}
+
+/* /Verifie si l'ecran est en paysage ou portrait */
+@media screen and (orientation: landscape) {}
+
+@media screen and (orientation: portrait) {}
+
+/* Verifie si l'utilisateur utilise un theme sombre ou non  */
+@media (prefers-color-scheme: dark) {}
+
+@media (prefers-color-scheme: light) {}
+
+/* ----------------Compatibilite entre les Navigateur ----------------*/
+/* 
+    certaines proprieter CSS ne fontionne que sur certain navigateur
+    D'autre on meme besoin d'un prefixe pour fonctionner 
+
+    On pourra noter les prefixes :
+        -webkit- est un prefixe pour chromium
+        -moz- est celui de firefox
+    
+        Cela s'aplique aussi a certain selecteurs
+        Prenons l'exemple d'une scrollbar
+*/
+
+div.scroll {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    /* La propriete overflow gere comment le block doir reagire si son contenue depasse sa taille 
+        hidden coupe ce qui depace
+        scroll une barre de scrolling
+        auto affiche ou cache la barre de scrolling selon si il 'ya depassement 
+     */
+    overflow-y: auto;
+    /* Changer la couleur de la barre de defilement  */
+    scrollbar-color: red pink;
+    /* Changer l'epaisseur de la barre de scroll */
+    scrollbar-width: thin;
+}
+
+/* 
+    Jusqu'a la version 121 sur chrome sortie en janvier 2024 cela ne fonctionner que sur firefox
+    pour chrome il fallait faire :
+*/
+div.scroll::-webkit-scrollbar {
+    background-color: pink;
+    width: 8px;
+}
+
+div.scroll::-webkit-scrollbar-thumb {
+    background-color: red;
+}
