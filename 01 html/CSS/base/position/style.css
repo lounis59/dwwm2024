@@ -1,0 +1,125 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 400vh;
+}
+
+/* 
+    La propriete "position" permet de changer la facon dont se positionne nos element 
+    Une fois un type de position choisi
+    On pourrat deplacer nos element avec les proprieter :
+        top,bottom, right et left
+        auxquelle on ajoutera une mesure (px,%...)
+*/
+header {
+    padding: 1rem;
+    background-color: slategray;
+    color: antiquewhite;
+    text-align: center;
+    /* 
+        En position fixed l'element sort du flux de la page et reste toujours visible lors du defilement 
+        Sa largeur devient egale a celle de son contenue
+    */
+    position: fixed;
+    width: 100%;
+    /* 
+        Le z-index permet de choisir la profondeur a la quelle se tyrouve un element positionner 
+        Par defaut tout element est sur l'index 0.
+        un index positife se trouve le plus proche de l'ecran 
+        un negatif plus eloigne
+    */
+    z-index: 1;
+    /* 
+        Il est possible d'ajouter plusieur image a  un background image en les separent d'une virgule 
+        La premiere sera au dessus de la suivante 
+        si une proprieter de background recoit une seule valeur elle s'aplique a toute les image 
+        mais il est possible d'en donner des differente en les separent d'une virgule
+
+    */
+    background-image: url(../../../img/gif\ mario-yoshi.gif), url(../../../img/samurai-battle-field-desktop-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    background-position: 10px, center;
+}
+
+nav,
+main {
+    margin-top: 50px;
+    display: inline-block;
+    height: 100%;
+    padding: 2rem;
+}
+
+nav {
+    width: 200px;
+    background-color: darkseagreen;
+    /* 
+        Les fonctionde degrade "xxx-gradient" creer une image degrade de couler 
+        Elle se place donc dans un background-image
+        Il est possible d'indiquer autant de couleur que l'on souhaite de choisir la direction du degrader 
+        ou meme l'espace que prend chaque couleur
+    */
+    background-image: linear-gradient(120deg, blue 10%, red 20%, pink, black);
+}
+
+nav ul {
+    /* 
+        La position stiky garde l'element a son emplacemùent habituel mais des que le scroling atein la position indique (ici 70 px du top de la page )
+        L'element comence a suivre le srcolling jusqu'a ateindre la fin de son parent 
+    */
+    position: sticky;
+    top: 70px;
+}
+
+main {
+    /*  
+        Calc permet de faire un calcule entre deux valeurs differente 
+        ! Attention de bien avoir des espace entre le mesure et les signe
+    */
+    width: calc(100% - 205px);
+    /* 
+        La proprieter "background" resume toute les proprieter de background
+        radial-gradient permet de faire des degrade en cercle
+    */
+    background: radial-gradient(yellow, green, pink);
+    /* 
+        La position relative garde l'emplacment de l'element dans le flux de la page 
+        Et en lui indiquant des direction deplacera l'element selon sa position de depard
+            top:50px; le deplacera a 50px vers le bas 
+        il est souvent utiliser en comun avec un enfant en positrion absolute     
+    */
+    position: relative;
+    /* top: 50px; */
+    /* left: 200px; */
+}
+
+main p:first-child {
+    color: dodgerblue;
+    background: linear-gradient(45deg, yellow 25%, black 25%, black 50%, yellow 50%, yellow 75%, black 75%);
+    background-size: 56.57px 56.57px;
+}
+
+main p:last-child {
+    height: 300px;
+    background: conic-gradient(green, yellow, black);
+}
+
+button {
+    /* 
+        La position absolute sort de l"element du flux de la page 
+        Puis le place selon les bord de son parent positionne le plus proche (si aucun selon le body)
+        par exemple top: 50px; le placera a 50 px du hau de son parent positioner le plus proche
+    */
+    position: absolute;
+    /* top: 0;
+    right: 0; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
