@@ -123,3 +123,17 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+img {
+    /*
+        La proprieter float retire l'element de son flux d'origine pour le replacer ailleur 
+        Elle permet aussi d'avoir du texte suivant les contour de l'element 
+    */
+    width: 100px;
+    float: left;
+    border-radius: 50%;
+    /* shape-outside permet d'avoir du texte suivant la forme d'un element non carre lorsque celui ci est en float */
+    shape-outside: margin-box;
+    margin: 5px;
+    margin-top: 1em;
+}
