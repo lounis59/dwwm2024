@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Mario";
+  src: url(assets/fontfamily/SuperMario256.ttf);
+}
+#background {
+  width: 100%;
+  height: 910px;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+#mario-yoshi {
+  position: absolute;
+  width: 100px;
+  top: 690px;
+  left: 200px;
+}
+#box1 {
+  position: absolute;
+  width: 100px;
+  top: 100px;
+  left: 30%;
+}
+#VectorUp {
+  position: absolute;
+  width: 30px;
+  top: 210px;
+  left: 610px;
+}
+#box2 {
+  position: absolute;
+  width: 100px;
+  top: 100px;
+  right: 30%;
+}
+#VectorUp2 {
+  position: absolute;
+  width: 30px;
+  top: 210px;
+  right: 610px;
+}
+#Comp {
+  position: absolute;
+  font-family: "Mario";
+  color: rgb(214, 224, 233);
+  text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+  font-size: 50px;
+  top: 210px;
+  right: 450px;
+}
+#CV {
+  position: absolute;
+  font-family: "Mario";
+  color: rgb(214, 224, 233);
+  text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+  font-size: 50px;
+  top: 210px;
+  left: 585px;
+}
+#cvLounis {
+  position: absolute;
+  height: 460px;
+  top: 210px;
+  left: 500px;
+  display: none;
+  z-index: 5;
+}
+.container:hover #cvLounis {
+  display: block;
+}
+#mushroom,
+#html5,
+#js,
+#css-3 {
+  position: absolute;
+}
+#mushroom {
+  right: 520px;
+  top: 300px;
+  width: 200px;
+}
+#html5 {
+  right: 550px;
+  top: 350px;
+  width: 30px;
+}
+#js {
+  top: 350px;
+  right: 650px;
+  width: 30px;
+}
+#css-3 {
+  top: 400px;
+  right: 600px;
+  width: 30px;
+}
+#imgComp {
+  display: none;
+}
+.container2:hover #imgComp {
+  display: block;
+}
+#flower {
+  width: 50px;
+  top: 574px;
+  right: 1053px;
+}
+#flower,
+#Projet,
+#VectorRight {
+  position: absolute;
+}
+#Projet {
+    font-family: "Mario";
+    color: rgb(214, 224, 233);
+    text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+    font-size: 25px;
+    top: 570px;
+    left: 660px;
+}
+#VectorRight {
+    top: 595px;
+    left: 780px;
+}
+.next,
+#nextT,
+#VectorDown {
+  position: absolute;
+}
+.next{
+    width: 50px;
+    right: 155px;
+    bottom: 123px;
+}
+#VectorDown{
+    right: 320px;
+    bottom: 305px;
+    width: 30px;
+}
+#nextT{
+    font-family: "Mario";
+    color: rgb(214, 224, 233);
+    text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+    font-size: 25px;
+    top: 520px;
+    right: 270px;
+}
+

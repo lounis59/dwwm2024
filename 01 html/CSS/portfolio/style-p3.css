@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "ProtestRiot";
+  src: url(assets/fontfamily/ProtestRiot-Regular.ttf);
+}
+@font-face {
+  font-family: "Mario";
+  src: url(assets/fontfamily/SuperMario256.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(assets/gif\ level\ mario.gif);
+  background-size: contain;
+  height: 100vh;
+}
+
+.textP {
+  position: absolute;
+  top: 100px;
+  left: 150px;
+  z-index: 5;
+}
+p {
+  color: white;
+  width: 800px;
+  font-size: 30px;
+  text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+  font-family: "ProtestRiot";
+  margin: 80px;
+}
+#etoile1,
+#etoile2,
+#etoile3,
+#etoile4 {
+  width: 50px;
+  position: absolute;
+}
+#etoile1 {
+  top: 100px;
+  left: 100px;
+  margin: 0;
+}
+#etoile2 {
+  top: 500px;
+  left: 110px;
+  margin: 0;
+}
+#etoile3 {
+  top: 500px;
+  left: 1100px;
+  margin: 0;
+}
+#etoile4 {
+  top: 110px;
+  left: 1090px;
+  margin: 0;
+}
+#box1 {
+  width: 100px;
+  position: absolute;
+  top: 400px;
+  right: 250px;
+}
+#vector {
+  position: absolute;
+  top: 440px;
+  right: 370px;
+  height: 40px;
+}
+#contact {
+  position: absolute;
+  color: rgb(214, 224, 233);
+  top: 400px;
+  right: 420px;
+  font-family: "Mario";
+  text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+  font-size: 40px;
+}
+.cont{
+    width: 500px;
+    height: 100px;
+    background-image: linear-gradient(rgb(3,5,9),rgb(59,96,165)) ;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 530px;
+    right: 100px;
+    display: none;
+}
+.Contact:hover+ .cont{
+    display: block;
+}
+.cont h4{
+    position: absolute;
+    text-shadow: 0px 5px rgba(0, 0, 0, 0.74);
+    color: rgb(214, 224, 233);
+}
+.cont img{
+    width: 30px;
+    position: absolute;
+}
+#mail{
+    top: 20px;
+    left: 20px;
+}
+#git{
+    top: 60px;
+    left: 20px;
+}
+#tel{
+    top: 20px;
+    right: 170px;
+}
+#adMail{
+    top: 20px;
+    margin: 0;
+    left: 60px;
+}
+#adGit{
+    top: 65px;
+    left: 60px;
+    margin: 0;
+}
+#numTel{
+    margin: 0;
+    right: 60px;
+    top: 20px;
+
+}
