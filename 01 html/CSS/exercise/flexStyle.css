@@ -1,0 +1,78 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    width: 25%;
+
+}
+
+#div1 {
+    background-color: cadetblue;
+}
+
+#div2 {
+    background-color: yellowgreen;
+
+}
+
+#div3 {
+    background-color: aquamarine;
+}
+
+#div4 {
+    background-color: bisque;
+}
+
+#div5 {
+    background-color: blue;
+    width: 100%;
+}
+
+#div6 {
+    background-color: blueviolet;
+}
+
+#div7 {
+    background-color: brown;
+}
+
+#div8 {
+    background-color: coral;
+}
+
+#div9 {
+    background-color: chartreuse;
+}
+
+@media screen and (max-width: 850px) {
+    main {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    div {
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    div {
+        width: 100%;
+    }
+}
