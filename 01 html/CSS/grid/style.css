@@ -12,7 +12,7 @@
     Le display grid permet de creer une grille d'autant de colonne et de rangee que souhaiter 
     puis de placer les different element enfant sur cette grille
 */
-body {
+body.cours1 {
     min-height: 100vh;
     display: grid;
     /* 
@@ -102,3 +102,52 @@ main div:nth-child(5) {
 }
 
 /*  Les elemnt non placer viendront utiliser les case restantes. */
+/* ------------------------GRID AREA -------------------- */
+.cours2 {
+    height: 100vh;
+    display: grid;
+    /* 
+        Le fr represente une fraction du site
+        Ici dans nos ranger nous avon un totale de 5fr
+        J'indique a ma premiere range de prendre 1/5eme de la hauteur
+        A la seconde de prendre 3/5eme et la derniere de nouveau 1/5
+    */
+    grid-template-rows: 1fr 3fr 1fr;
+    /*  Ici nous avont 6 fois 1fr chaque colonne prend donc 1/6eme de la largeur */
+    grid-template-columns: repeat(6, 1fr);
+    /* 
+        Si on a nomme nos element avec grid-area 
+        On peut venir les placer grace a grid-template-area chaque"" represente une nouvelle ligne et chaque nom separe d'un espace une nouvelle colonne 
+        Attention de bien respecter le meme nombre de colonne a chaque ligne 
+    */
+    grid-template-areas:
+        "header header header header header header"
+        "menu article article article chaussette chaussette "
+        "menu footer footer footer footer footer";
+}
+
+.item1 {
+    background: blue;
+    /* grid-area peut aussi etre utiliser pour nommer les element dans la grille  */
+    grid-area: header;
+}
+
+.item2 {
+    background: red;
+    grid-area: menu;
+}
+
+.item3 {
+    background: yellow;
+    grid-area: article;
+}
+
+.item4 {
+    background: green;
+    grid-area: chaussette;
+}
+
+.item5 {
+    background: pink;
+    grid-area: footer;
+}
