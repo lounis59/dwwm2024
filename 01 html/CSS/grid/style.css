@@ -1,0 +1,104 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+    Le display grid, se place comme pour le display flex sur le parent des element que l'on souhaite deplacer
+
+    Le display grid permet de creer une grille d'autant de colonne et de rangee que souhaiter 
+    puis de placer les different element enfant sur cette grille
+*/
+body {
+    min-height: 100vh;
+    display: grid;
+    /* 
+        grid-template-rows permet d'indiquer le nombre et la taille des rangée de ma grille
+        chaque valeur separer d'un espace represente une nouvelle range
+        Et la valeur est la hauteur de celle ci
+            auto indique a la range de prendre seulement la hauteur necessaire pour son contenue
+            1fr indique de prendre une fraction du site (si il n'y a pas d'otre unite fr utilise elle prendra tout l'espace restant 
+        On peut evedement utiliser toute les unites de mesure habituelles
+    */
+    grid-template-rows: auto 1fr auto;
+}
+
+main {
+    display: grid;
+    /* 
+        si le nombre d'element de la grille depasse le nombre de case il generera des cas automatiquement 
+    */
+    grid-template-rows: 20vh auto 200px 100px;
+    /* 
+        grid template columns indique la taille et le nombre de colonne 
+        Il fonctionne exactement comme grid-template-roms
+
+        repeat() permet de repeter une valeur plusieur fois 
+        ici ca serait l'equivalent d'ecrire : 15% 15% 15% 15% 15%
+    */
+    grid-template-columns: repeat(5, 15%);
+    /* permet si il reste de la placce d'espacer les colonnes ou deplacer la grille */
+    justify-content: space-evenly;
+}
+
+main>div:nth-child(1) {
+    /* 
+        Par defaut chaque element vient se placer sur la case suivante de la grille 
+        Mais on choisir leur emplacement et leur taille
+    */
+    background-color: lightgreen;
+    /*  Permet d'indiquer a partire de quelle colonnes mon element commence */
+    grid-column-start: 2;
+    /*  Indique quelle colonne s'arrete mon element   */
+    grid-column-end: 5;
+    /* Permet indiquer quelle ranger il commence */
+    grid-row-start: 1;
+    /*  Permet d'indiquer a quelle ranger il termine */
+    grid-row-end: 3;
+}
+
+main div:nth-child(2) {
+    background-color: lightblue;
+    /* 
+        Les proprieter grid-column-start et end peuvent etre resume en grid-column
+    */
+    grid-column: 1/2;
+    /* 
+        De meme pour les rangée 
+    */
+    grid-row: 1/3;
+}
+
+main div:nth-child(3) {
+    background-color: lightcoral;
+    /* 
+        On peut resumer ces proprieter en grid-area avec l'orde suivant:
+            row-start / column-start / row-end / column-end
+    */
+    grid-area: 1/5/4/6;
+}
+
+main div:nth-child(4) {
+    background-color: lightseagreen;
+    /* 
+        Pluto qu'indiquer une position de fin 
+        On peut utiliser le mot cle "span" pour indiquer combien une case l'eleent HTML doit prendre
+    */
+    grid-row: 3/ span 2;
+    grid-column: 1/ span 2;
+}
+
+main div:nth-child(5) {
+    background-color: lightgoldenrodyellow;
+    /* 
+        ! ATTENTION:
+        On peut volontairement ou involontairement superposer des colonne
+    */
+    grid-row: 2/ span 2;
+    grid-column: 2/ span 2;
+}
+
+/*  Les elemnt non placer viendront utiliser les case restantes. */
