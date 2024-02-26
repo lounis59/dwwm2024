@@ -1,0 +1,119 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+    On peut definir une animation via la @rule nomme "@keyframes" suivi d'un nom que l'on aura choisit
+    On s'en servira pour indiquer les etape clefs de notre animation le navigateur s'occupera de la transition entre c'est etape clefs
+*/
+@keyframes cloud {
+
+    /* "from" ou "0%" est le point de depart de mon animation  */
+    from {
+        right: -30vw;
+        height: 5px;
+        width: 5px;
+    }
+
+    /* 
+        entre le point de depard et d'arrive on peut declarer autend d'etape clef que souhaite 
+        Cela sous forme de %
+    */
+    30% {
+        top: 100vh;
+    }
+
+    70% {
+        top: 100px;
+    }
+
+    75% {
+        width: 50px;
+        height: 50px;
+    }
+
+    /* "to" ou "100%" est le point d'arrive de mon animation */
+    to {
+        right: 100vw;
+        height: 250px;
+        width: 250px;
+    }
+}
+
+@keyframes darckCloud {
+    0% {
+        background-color: grey;
+    }
+
+    50% {
+        background-color: white;
+    }
+
+    100% {
+        background-color: grey;
+    }
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.sky {
+    height: 100%;
+    background: linear-gradient(to right, #904E95, #E96443);
+}
+
+.cloud {
+
+    position: absolute;
+    top: 50%;
+    /*  suprimer left car entrera en conflit avec le right de l'animation */
+    /* left: 50%; */
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    /* Permet d'indiquer le keyframes utiliser */
+    animation-name: cloud;
+    /* Permet d'indiquer la durer de l'animation */
+    animation-duration: 10s;
+    /* 
+        Optionellement on ajouter les proprieter suivante : 
+        Permet d'indiquer dans quel sens jouer l'animation
+    */
+    animation-direction: normal;
+    /* Permet d'indiquer le rythme de l'animation ( voir transition-timing-function) */
+    animation-timing-function: ease-in-out;
+    /* Permet d'indiquer un delay de l'animation avant son lancement  */
+    animation-delay: 0.5s;
+    /* Indique a l'element de rester sur la position final une fois l'animation terminé */
+    animation-fill-mode: forwards;
+    /* Indique le ombre de fois ou l'animation doit se jouer  */
+    animation-iteration-count: infinite;
+}
+
+.cloud div {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    /* La proprieter animation regroupe toute les proprieter d'animation */
+    animation: darckCloud 5s linear infinite;
+}
+
+.part1 {
+    top: -35%;
+}
+
+.part2 {
+    left: 35%;
+}
+
+.part3 {
+    left: -35%;
+}
