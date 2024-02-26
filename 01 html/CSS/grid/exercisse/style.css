@@ -35,7 +35,7 @@ img {
 }
 
 div>div {
-    width: 80%;
+    width: 50%;
     padding: 5px;
     display: flex;
     flex-direction: column;

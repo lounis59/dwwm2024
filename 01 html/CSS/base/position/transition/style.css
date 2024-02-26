@@ -1,0 +1,97 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    transform: translate(-50%, -50%);
+    /* 
+        Les proprieter de transition permettent de forcer le navigateur a changer de valeur peti a petit plutot qu'instentannement
+        Ici j'indique que ke souhaite que la proprieter left prenne 1s a changer
+    */
+    transition-property: left;
+    transition-duration: 1s;
+}
+
+input#burger {
+    display: none;
+}
+
+input#burger:checked~ul {
+    left: 50%;
+}
+
+li {
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+button {
+    font-size: 3rem;
+    aspect-ratio: 1/1;
+}
+
+li:nth-child(1) button {
+    background-color: chartreuse;
+    /* Je peux indiquer plusieur proprietes en les separent d'une virgule  */
+    transition-property: background-color, transform;
+    /* la premiere proprieter duration s'applique a la premiere proprieter et ainsi de suite  */
+    transition-duration: 1s, 2s;
+    /* 
+        Permet d'appliquer un delai avent que la transition se lance
+        Si plusieur proprietes sont indique mais qu'une seul valeur est donne elle s'aplique a toute les proprietes
+    */
+    transition-delay: 0.5s;
+    /* 
+        Gere le rythme de la transition lineaire ou bien rapide au debut et ralentie a la fin...
+        On peut utiliser des mot clefs (linear, ease,ease-in, ease-out, ease-in-out)
+        Ou bien les courbe de bezier pour un effet plus personalise
+    */
+    transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+
+li:nth-child(1) button:hover {
+    background-color: darkviolet;
+    transform: rotate(180deg);
+}
+
+li:nth-child(2) button {
+    /* On indique avec se mot clef que toute les proprieter peut etre transitionne */
+    transition-property: all;
+    transition-duration: 3s;
+    /* La fonction staps permet une transition non pas fluide mes par etape (ici 5 etape) */
+    transition-timing-function: steps(5, jump-start);
+}
+
+li:nth-child(2) button:hover {
+    border-radius: 50%;
+    color: red;
+    background-color: black;
+}
+
+li:nth-child(3) button {
+    /* 
+        La proprieter transition resume toutes les proprieter de transition en une 
+        Le premier temps indique la duree le seconde le delai
+    */
+    transition: all 2s 0.5s linear;
+}
+
+li:nth-child(3) button:active {
+    /* 
+        box-shadow permet d'ajouter une ombre a un block
+        La premiere valeurs esle decalage horizontale de l'ombre
+        La seconde la verticale 
+        La troisieme(optionelle) le flou de l'ombre
+        La quatrieme (optionelle ) l'etalage de l'ombre 
+        Et enfin la couleur 
+        (On peut ajpouter plusieur ombre en les separent d'une virgule) 
+    */
+    box-shadow: 10px 50px 10px 50px red;
+}
