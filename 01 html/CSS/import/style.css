@@ -1,0 +1,5 @@
+@import url("./CSS/default.css");
+@import url("./CSS/desktop.css") screen and (min-width:900px);
+@import url("./CSS/footer.css");
+@import url("./CSS/header.css");
+@import url("./CSS/main.css");
