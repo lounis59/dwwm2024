@@ -1,0 +1,115 @@
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: grey;
+}
+
+.ball1,
+.ball2,
+.ball3 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+
+}
+
+@keyframes saut {
+    /* 0% {
+        top: 50%;
+    }
+
+    50% {
+        translate: 0% 50%;
+
+
+    } */
+
+    100% {
+        translate: 0% -50%;
+
+
+    }
+}
+
+.ball1 {
+    left: 50%;
+
+    animation: saut 0.3s alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+
+}
+
+.ball2 {
+
+    left: 40%;
+    animation: saut 0.3s alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 0.05s;
+}
+
+.ball3 {
+    left: 60%;
+    animation: saut 0.3s alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+}
+
+@keyframes rotation {
+    100% {
+        rotate: 360deg;
+
+    }
+}
+
+.barre1,
+.barre2,
+.barre3 {
+    width: 190px;
+    height: 190px;
+    /* background-color: red; */
+    border-radius: 50%;
+    border: 5px solid transparent;
+    border-top-color: red;
+    translate: -50% -50%;
+    position: absolute;
+}
+
+.barre1 {
+    animation: rotation 1s linear;
+    animation-iteration-count: infinite;
+    top: 50%;
+    left: 50%;
+    border-top-color: pink;
+}
+
+.barre2 {
+    animation: rotation 1.5s linear;
+    animation-iteration-count: infinite;
+    width: 210px;
+    height: 210px;
+    top: 50%;
+    left: 50%;
+    border-top-color: rebeccapurple;
+}
+
+.barre3 {
+    animation: rotation 2s linear;
+    animation-iteration-count: infinite;
+    width: 230px;
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    animation-delay: 0.2s;
+}

@@ -117,3 +117,79 @@ body {
 .part3 {
     left: -35%;
 }
+
+/* ----------------- Animation Scrolling ------------------- */
+/* 
+    Ces proprieter sont encore en cours de developement ,certain navigateur pourait ne pas les gerer
+    Elle permet de remplacer le temp de derouler d'une animation par le scrolling de la page ( ou d'un autre element )
+
+        0% (from) correspondra au defilement de la page tout en haut
+        100% (to) au defilement de la page tout en bas
+*/
+@keyframes scrollme {
+    from {
+        scale: 0 1;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes scrollus {
+    from {
+        left: -20px;
+        rotate: 0;
+    }
+
+    to {
+        left: 100vw;
+        rotate: 1440deg;
+    }
+}
+
+body.scroll {
+    overflow: auto;
+    height: auto;
+}
+
+.scroll p {
+    padding: 15rem 1rem;
+}
+
+.scroll header {
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: lightcyan;
+}
+
+.scroll .progress {
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: green;
+    scale: 0 1;
+    transform-origin: left;
+    animation: scrollme auto linear;
+    /* 
+        Lorsque la durer de l'animation est place sur auto
+        Il faut l'acompagner de la proprieter animation-timeline avce la fonction scroll() j'indique a mon element d'aligner le deroulement de l'animation sur le scrolling le plus proche
+        Il est possible de lui ajouter entre parentese root pour lui dire de se fixer sur le scrolling de la page  
+    */
+    animation-timeline: scroll();
+}
+
+.scroll .ball {
+    translate: -100% 0;
+    position: absolute;
+    bottom: 20px;
+    border-radius: 50%;
+    width: 20px;
+    aspect-ratio: 1/1;
+    background-image: radial-gradient(at 30% 30%, rgb(251, 199, 199), rgb(255, 140, 105));
+    animation: scrollus auto ease-in;
+    animation-timeline: scroll();
+}
