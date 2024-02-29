@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS / SCSS</title>
+    <link rel="stylesheet" href="./css/test.css">
+</head>
+
+<body>
+    <header>
+        <h1>Les base de SASS et de SCSS</h1>
+    </header>
+    <main>
+        <ul>
+            <li>
+                Pour installer SASS in utilisera <br>
+                <strong>npm install -g sass</strong>
+            </li>
+            <li>
+                Pour compiler du sass-scss en css on utilisera la commande <br>
+                <strong>sass cheminVerFichierSource.scss
+                    cheminVerFichierSource.sass
+                </strong>
+            </li>
+            <li>
+                Pour eviter de relancer la commende a chaque modification, on peut ajouter --watch <br>
+                <strong>sass --wtch cheminVerFicherSource.scss</strong><br>
+                par exemple ici :
+                <code>sass --watch ./scss/test.scss</code>
+            </li>
+            <li>
+                On peut surveiller tout un dossier : <br>
+                <strong>sass --watch nomDossierSource/:nomDossierCible/</strong>
+            </li>
+            <li>
+                On peut choisir de minimifier notre compilation avec l'option "--style compressed" <br>
+                <strong>sass --watch nomDossierSource/:nomDossierCible/ --style compressed</strong>
+            </li>
+        </ul>
+        <section class="sass">
+            <h2><span>SASS</span></h2>
+            <p class="superP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At quam odio et. Sint autem repudiandae dolorem
+                id voluptatibus laboriosam perferendis minus provident iste odit nesciunt hic officiis exercitationem,
+                voluptatem perspiciatis.</p>
+        </section>
+    </main>
+    <div class="copy">
+        &copy
+    </div>
+    <div class="menu">Menu</div>
+    <ul>
+        <li class="truc1">Truc 1</li>
+        <li class="truc2">Truc 2</li>
+        <li class="truc3">Truc 3</li>
+        <li class="truc4">Truc 4</li>
+        <li class="truc5">Truc 5</li>
+    </ul>
+</body>
+
+</html>

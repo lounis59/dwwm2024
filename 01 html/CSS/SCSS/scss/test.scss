@@ -1,0 +1,114 @@
+@use "liste";
+h1{
+    color: red;
+}
+h2{
+    color: grey;
+    background-color: black;
+}
+// ---------- Nesting (nedification) -----------
+/*
+    SCSS apporte le nesting , celui-ci permet d'integrer un selecteur dans un autre 
+    par exemple je cible le h2 qui est dans la section.sass
+*/
+section.sass{
+    background-color: aquamarine;
+    h2{
+        background-color: brown;
+        span{
+            font-style: italic;
+        }
+        //  & Faut reference au selecteur parent 
+        // ici &:hover sera traduit par h2:hover
+        &:hover{
+            transform: scale(1.5);
+        }
+    }
+}
+// ------------------- Variables -----------------------
+/*
+    Les variables scss n'apparaissent pas sur le CSS comencent forcement par un $
+    et s'utilisent en ecrivant leur noms
+*/
+$colorMain: violet;
+.superP{
+    background-color: $colorMain;
+}
+// -------------- Extendes ------------------
+// extends permet de definire un morceau de CSS reutilisable a plusieurs endroits
+
+%flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+
+    /*
+        Avec @extend nous pouvont rcuperer le code definit plus haut 
+        ou alor celui d'une classe
+    */
+    @extend %flexCenter;
+    @extend .superP
+}
+main ul{
+    @extend %flexCenter;
+}
+// ------------- Mixin --------------
+/*
+    Pareillement au @extend ,@mixin permet de definir des moceau de code reutilisable
+    La difference etant que l'on va pouvoir y appliquer des parametre variable 
+    Pour cela entre les parametre nous pouvon ajouter autant de variable que l'on souhaite et les utiliser dans notre mixin 
+*/
+@mixin absol($top,$left,$tr1:-50%,$tr2:-50%){
+    position: absolute;
+    top: $top;
+    left:$left;
+    transform: translate($tr1,$tr2);
+}
+.copy{
+    font-size: 4rem;
+    background-color: mediumpurple;
+    @include absol(90%,90%);
+}
+.menu{
+    font-size: 3rem;
+    background-color: salmon;
+    @include absol(5%,45% ,$tr2:100% );
+}
+// -------------------- Fonctions SCSS ----------------------
+/*
+    Une fonction sass est un code qui est appeler en prenant un ou plusieurs parametre 
+    Et qui retournera une valeur differente
+    Certainne fonction sont dejat predefinie dans scss d'autre peuvent etre definie par l'utilisateur
+*/
+@function compLight($color){
+    // La fonction complement permet de recuperer la couleur complaimentaire a celle donne en parametre 
+    $comp: complement($color);
+    // lighten permet d'eclaisir la couleur donne en parametre 
+    $light: lighten($comp, 5%);
+    // @return permet de rendre la valeur qui suit lor de l'utilisation de la fonction 
+    @return $light;
+}
+.copy{
+    color: compLight(red)
+}
+// -------------------- Condition ----------------
+
+@mixin radius($w,$h){
+    width: $w;
+    height: $h;
+    @if $w == $h{
+        border-radius: 50%;
+    }
+    @else{
+        border-radius: 5px;
+    }
+}
+.copy{
+    @include radius(5rem,5rem );
+}
+.menu{
+    @include radius(10rem,5rem );
+
+}

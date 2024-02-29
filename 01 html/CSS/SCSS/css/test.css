@@ -1,0 +1,126 @@
+ul {
+  background-color: cornflowerblue;
+  /*
+      nth() permet de selectionner un element dans une liste
+  */
+  /*
+      nth() permet de selectionner un element dans une liste
+  */
+  /*
+      nth() permet de selectionner un element dans une liste
+  */
+  /*
+      nth() permet de selectionner un element dans une liste
+  */
+  /*
+      nth() permet de selectionner un element dans une liste
+  */
+}
+ul .truc1 {
+  font-size: 30px;
+}
+ul .truc2 {
+  font-size: 40px;
+}
+ul .truc3 {
+  font-size: 50px;
+}
+ul .truc4 {
+  font-size: 60px;
+}
+ul .truc5 {
+  font-size: 70px;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: grey;
+  background-color: black;
+}
+
+/*
+    SCSS apporte le nesting , celui-ci permet d'integrer un selecteur dans un autre 
+    par exemple je cible le h2 qui est dans la section.sass
+*/
+section.sass {
+  background-color: aquamarine;
+}
+section.sass h2 {
+  background-color: brown;
+}
+section.sass h2 span {
+  font-style: italic;
+}
+section.sass h2:hover {
+  transform: scale(1.5);
+}
+
+/*
+    Les variables scss n'apparaissent pas sur le CSS comencent forcement par un $
+    et s'utilisent en ecrivant leur noms
+*/
+.superP, header {
+  background-color: violet;
+}
+
+main ul, header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  /*
+      Avec @extend nous pouvont rcuperer le code definit plus haut 
+      ou alor celui d'une classe
+  */
+}
+
+/*
+    Pareillement au @extend ,@mixin permet de definir des moceau de code reutilisable
+    La difference etant que l'on va pouvoir y appliquer des parametre variable 
+    Pour cela entre les parametre nous pouvon ajouter autant de variable que l'on souhaite et les utiliser dans notre mixin 
+*/
+.copy {
+  font-size: 4rem;
+  background-color: mediumpurple;
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.menu {
+  font-size: 3rem;
+  background-color: salmon;
+  position: absolute;
+  top: 5%;
+  left: 45%;
+  transform: translate(-50%, 100%);
+}
+
+/*
+    Une fonction sass est un code qui est appeler en prenant un ou plusieurs parametre 
+    Et qui retournera une valeur differente
+    Certainne fonction sont dejat predefinie dans scss d'autre peuvent etre definie par l'utilisateur
+*/
+.copy {
+  color: #1affff;
+}
+
+.copy {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.menu {
+  width: 10rem;
+  height: 5rem;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=test.css.map */
