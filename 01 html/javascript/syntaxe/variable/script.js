@@ -344,5 +344,48 @@ a7[3] = tmp;
 // ou alors :
 [a7[0],a7[3]] = [a7[3],a7[0]]
 
-// ? ---------------------- Objets ------------------------
+// ? ---------------------- Objets -------------------------
+/* 
+    Les objet ressemble a des tableaux mais sont declarer avec {}
+    Au lieu d'etre indexe numeriquement on utilisera des noms de proprieter :
+*/
+let o1 = {nom: "Dupont",age:45,loisir:["bowling","mahjong"]};
+// Pour acceder a une propriete on indique le nom de la variable suivi d'un "." et du nom de la proprieter 
+console.log(o1.nom,o1.age,o1.loisir);
+// on peut aussi y acceder comme un tableau:
+console.log(o1["nom"],o1["age"],o1["loisir"]);
+
+
 // ?----------------------- Booleans -----------------------
+// Les booleans n'accepte que deux valeur "true" ou "false"
+let b1 = true , b2 = false;
+
+// On peut les faire apparaitre via des condition :
+console.log("1 < 2 :",1<2);
+console.log("1 > 2 :",1>2);
+console.log("1 <= 2 :",1<=2);
+console.log("1 >= 2 :",1>=2);
+// Pour comparer une egalite, il faut au moins 2 "="
+console.log("1 == '1'",1=='1');
+// Avec 3 le type peut etre compare
+console.log("1 === '1'", 1==='1');
+
+console.log("1 != '1'", 1!='1');
+console.log("1 !== '1'", 1!=='1');
+// Un point d'exclamation devant un booleans va invercer le resultat
+console.log("b1 :",b1,"b2 :",b2);
+console.log("!b1 :",!b1,"!b2 :",!b2);
+// On va pouvoir verifier plusieur cas a la fois avec "&&" et "||"
+// Avec "&&" il faut que les deux condition soit vraie pour obtenir "true"
+console.log(true && true,true&&false,false&&true,false&&false);
+//  Avec "||" il suffit qu'une des condition soit vrait pour obtenire "true"
+console.log(true || true,true||false,false||true,false||false);
+
+// Le principe de "court circuit" permet de ne pas verifier une instruction selon le resultat de la premiere 
+let nb = 0;
+// avec "&&" si la premiere instruction est fausse la seconde ne sera pas verifie
+console.log(true && ++nb,nb);
+console.log(false && ++nb,nb);
+// avec "||" si la premiere est vrait la seconde n'est pas verifie
+console.log(false || ++nb,nb);
+console.log(true || ++nb,nb);
