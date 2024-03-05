@@ -85,3 +85,72 @@ function goodMorning(...noms){
     console.log(`Good morning ${noms.join()}`);
 }
 goodMorning("pierre","paul","jacques");
+
+// ? ---------------------- Mettre fin a une fonction, renvoyer une information -----------------------------------
+
+/* 
+    On peut parfois avoir besoin de mettre fin a une fonction avant la fin de celle ci
+    Ou bien retourner une information que l'on poura  reutiliser ailleur 
+    Ces deux cas utilisent le mot clef "return"
+*/
+
+function insulte(nom){
+    if(nom === undefined){
+        console.error("Donne moi un nom")
+        // Placer un return seul mettra fin a la fonction sans autre effet
+        return;
+    }
+    // Si le mot clef "return est suivi d'une valeur la fonction prend fin en retournent cette valeur"
+    return nom + " Le Poltron";
+}
+insulte();
+// La valeur retourne est ensuite utilisable dans une varible ou une fonction :
+let newName = insulte("Bob");
+console.log(newName);
+console.log(insulte("Bill"));
+/* 
+    Les fonction fleche avec une seule instruction (sans acolade) ont un return implicite
+    C'est a dire que meme si le mot clef n'y est pas il y a un return qui se produit
+*/
+const add = (a,b)=>a+b;
+console.log(add(4,8))
+
+// ? ------------------------------Fonction recursives --------------------------------------
+/* 
+    Une fonction recursive est une fonction qui s'appele elle meme
+    Attention de bien prevoir une condition de sortie pour eviter les boucle infinie
+*/
+/** 
+ * fonction recurcive qui produit un decompte
+ * @param {number} x un nombre positif
+ * @returns undefined 
+  */
+function decompte(x){
+    console.log(x--);
+    if (x < 0)return;
+    decompte(x);
+}
+decompte(10);
+
+// ? ------------------------------ Les fonction callback --------------------------------------
+/* 
+    une fonction callback est une fonction qui est donne en parametre 
+    puis appeler par la fonction qui recoit cet argument 
+
+    C'est le cas de "foreach()"
+    qui va parcourir un tableau en appele a chaque fois la fonction donne en callback
+*/
+let pr = ["Alice","Ariel","Mulan","Belle"];
+// On peut donner en callback une fonction definie anonyme ou flechee
+pr.forEach(bonsoir);
+pr.forEach(function(princesse){
+    console.log("Bienvenue "+princesse)
+});
+pr.forEach(princesses=>console.log("Bonjour Bonjour "+ princesses));
+
+// Exemple de fonction utilisant le callback
+
+function compliment(maFonction,nom){
+    maFonction(nom+ " Le magnifique")
+}
+compliment(bonsoir,"Greg")
