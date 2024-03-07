@@ -54,3 +54,51 @@ h1.removeEventListener("click", test);
 /* 
     Petit default on ne peut retirer que les eventListener ou l'on utilise une fonction nomme
 */
+// ?-------------------------------------Exercisse-------------------------------------
+
+const pColor = document.querySelector(".div2 input");
+const btnColor = document.querySelector(".div2 button")
+const div = document.querySelector(".div2")
+
+pColor.onchange = ()=>{ 
+    btnColor.style.color = pColor.value
+    console.dir(pColor);
+};
+btnColor.onclick = ()=>{
+    div.style.backgroundColor = btnColor.style.color
+};
+
+const fenetre = document.querySelector("aside")
+const btnMouv = document.querySelector(".div3 button")
+const btnFermer = document.querySelector(".fenetre .fermer")
+
+btnMouv.onclick = ()=>{
+    fenetre.style.left = "40%"
+    fenetre.style.transition = "1s"
+    btnFermer.onclick = ()=>{
+        fenetre.style.left = "100vw"
+        fenetre.style.transition = "1s"
+    }
+}
+
+const liste = document.querySelectorAll("li")
+console.log(liste);
+for(let i=0 ; i<liste.length ; i++){
+
+    liste[i].onclick = (e)=>{
+
+        if(e.target.style.fontSize === ""){
+            e.target.style.fontSize = "2rem"
+        }else{
+            e.target.style.fontSize = ""
+        }
+    }
+    console.log(liste);
+}
+
+const pFooter = document.querySelector("footer p");
+
+function suivit(){
+    pFooter.mouseenter
+}
+
