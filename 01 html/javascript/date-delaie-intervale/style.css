@@ -1,0 +1,85 @@
+*,::before, ::after
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+header{
+    text-align: center;
+    background-color: cadetblue;
+}
+main{background-color: darksalmon;}
+footer{
+    text-align: center;
+    background-color: honeydew;
+}
+.bar{
+    height: 30px;
+    position: relative;
+    width: 100%;
+    background-color: gray;
+
+}
+.progress{
+    background-color: rgb(11, 200, 11);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    transition: width 3s;
+}
+.cercle{
+    background-image: url(cadran.jpg);
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%; 
+    position: relative;   
+}
+.aiguille1{
+    width: 250px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    transform-origin: left;
+    left: 50%;
+    
+}
+.aiguille2{
+    width: 230px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    transform-origin: left;
+    left: 50%;
+    
+}
+.aiguille3{
+    width: 230px;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    transform-origin: left;
+    left: 50%;
+    
+}
+.point{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    left: 50%;
+}
