@@ -12,7 +12,7 @@ function changeTheme(){
         document.documentElement.style.setProperty("--fond","#333")
         document.documentElement.style.setProperty("--text","antiquewhite")
         /* 
-            Pour sauvegarder des donne sur le navigateur on utilisera "tocalStorage" ou "sessionStorage"
+            Pour sauvegarder des donne sur le navigateur on utilisera "localStorage" ou "sessionStorage"
             La sessionStorage est suprimer quand on quitte le navigateur 
 
             Pour sauvegarder on utilise la methode ".setItem(clef,valeur)"
