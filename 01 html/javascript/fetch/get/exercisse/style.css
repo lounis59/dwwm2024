@@ -1,0 +1,15 @@
+.card{
+    width: 200px;
+    border: 2px solid black;
+    margin:5%;
+    overflow: hidden;
+    padding: 10px;
+    p{
+        line-height: 2;
+    }
+}
+.boite{
+    display: flex;
+    justify-content: space-around;
+    
+}
