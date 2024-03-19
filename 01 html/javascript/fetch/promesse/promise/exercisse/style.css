@@ -1,0 +1,16 @@
+.support {
+    width: 20vw;
+    height: 80vh;
+    margin: 10vh 40vw ;
+    background-color: black;
+    display:flex;
+    flex-direction: column;
+}
+
+.support div{
+width: 90%;
+height: 30%;
+background-color: grey;
+border-radius: 50%;
+margin: 5%;
+}
