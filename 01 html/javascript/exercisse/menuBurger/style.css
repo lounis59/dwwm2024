@@ -30,7 +30,8 @@ body {
   }
 }
 .bar{
-    
+    display: block;
+   position: relative;
     width: 50px;
     height: 50px;
     
@@ -40,10 +41,19 @@ body {
 .bar span{
     
     display: block;
-    margin: 5px;
+    position: absolute;
     width: 20px;
     height: 2px;
     background-color: black;
+}
+.bar1{
+  top: 30%;
+}
+.bar2{
+  top: 50%;
+}
+.bar3{
+  top: 70%;
 }
 
 
