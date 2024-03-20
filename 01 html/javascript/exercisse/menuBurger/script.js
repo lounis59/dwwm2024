@@ -21,13 +21,13 @@ bouton.addEventListener("click", () => {
     bar1.style.rotate = "";
     bar1.style.translate = "";
     bar1.style.tranformeOrigine = "";
-    bar2.style.backgroundColor = "";
     bar3.style.rotate = "";
     setTimeout(()=>{
+        bar2.style.backgroundColor = "";
         bar3.style.top = "";
         bouton.style.backgroundColor = "";
 
-    },500)
+    },1000)
   }
   if (bar1.style.rotate === "45deg") {
     setTimeout(() => {
@@ -38,7 +38,8 @@ bouton.addEventListener("click", () => {
       bar3.style.transition = "2s";
       menu.style.width = "90vw";
       menu.style.transition = "2s";
-      bouton.style.backgroundColor = "greenyellow";
+      bouton.style.backgroundColor = "red";
+      bouton.style.transition = "1s"
     }, 1000);
   }
 });
