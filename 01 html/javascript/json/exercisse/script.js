@@ -59,8 +59,10 @@ if(userTask){
         div.appendChild(cross)
         document.body.append(div)
         cross.addEventListener("click",()=>{
+            let sup = userData.indexOf(text)
             document.body.removeChild(div);
-            userData.splice(p)
+            
+            userData.splice(sup)
 
            localStorage.setItem("donne", JSON.stringify(userData));
         })
