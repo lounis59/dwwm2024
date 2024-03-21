@@ -1,0 +1,78 @@
+
+
+.boite1 , .boite2{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    position: relative;
+    
+    div{
+        position: relative;
+        width: 50%;
+        height: 100%;
+    }
+    p{
+        position: absolute;
+        width: 0;
+        overflow: hidden;
+        font-size: 3rem;
+    }
+    span{
+        position: absolute;
+        top:50% ;
+        translate: 0 25%;
+        left: 50%;   
+        display: block;
+        opacity: 0;
+        background: black;
+        width: 10px;
+        height: 100px;
+        
+        
+    }
+}
+.boite2{
+    align-items: flex-end;
+    display: flex;  
+    height: 100px;
+    position: absolute;
+    right: 30%;
+    
+    div{
+        position: relative;
+        width: 50%;
+        height: 100%;
+    }
+    p{
+        position: absolute;
+        width: 0;
+        overflow: hidden;
+        font-size: 3rem;
+    }
+    span{
+        position: absolute;
+        top:50% ;
+        translate: 0 25%;
+        left: 50%;   
+        display: block;
+        opacity: 0;
+        background: black;
+        width: 10px;
+        height: 100px;
+        
+        
+    }
+    .text4 p{
+        left: 0;
+        top: 50%;
+        margin-left: 20px;
+    }
+}
+.text1 p,.text3 p{
+    right:2%;
+    top: 50%;
+}
+.text2 p{
+    left:2%;
+    top: 50%;
+}
