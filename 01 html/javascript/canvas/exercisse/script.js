@@ -15,7 +15,7 @@ const ctx = canvas.getContext('2d');
 let painting = false
 let startY ,startX,mouseX,mouseY
 
-
+ctx.lineWidth = 10
 
 canvas.addEventListener('mousemove',(e)=>{
     mouseX = e.clientX
@@ -29,7 +29,7 @@ canvas.addEventListener('mousemove',(e)=>{
         ctx.moveTo(startX,startY)
         ctx.lineTo(mouseX,mouseY) 
 
-        // ctx.lineWidth = "10"
+        
         ctx.stroke()
         
         startX = mouseX
