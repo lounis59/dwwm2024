@@ -67,3 +67,105 @@ ctx.lineWidth = 8 ;
 ctx.stroke();
 // fill permet de remplir la forme dessine
 ctx.fill();
+
+// ? --------------------- Cercle ---------------------
+ctx.beginPath();
+/* 
+    arc permet dessiner des cercle ou arc de cercle avec les proprieter suivante :
+    positionX , positionY , taille du rayon,
+    position depat du radiant (0 pour un cercle complet )
+    positioon en fin de radiant (Math.PI*2 pour un cercle complet)
+*/
+ctx.arc(89,90,42,0,2*Math.PI);
+ctx.stroke();
+// Suprime ce qui se trouve dans le rectangle defini en parametre :
+ctx.clearRect(50,60,70,80)
+// pour tous suprimer 
+// ctx.clearRect(0,0,canvas.width, canvas.height);
+// ? ---------------------------- Animation ---------------------
+/* 
+    "getImageData" permet de recuperer un objet contenant les donnee des pixels dans le rectangle donnee en argument
+    
+    inversement "putImageData" permet en prenant l'objet creer par "getImageData" de redessiner ce qui est sauvegarder
+*/
+let snapshot = ctx.getImageData(0,0,canvas.width,canvas.height);
+
+let x = 100,y = 100, vitesseV = 5, vitesseH = 5, r =80;
+
+function moveCercle(){
+
+    // TODO clear & Put
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    ctx.putImageData(snapshot, 0 ,0)
+    ctx.beginPath()
+    ctx.arc(x,y,r,0,Math.PI*2)
+    ctx.fill();
+    ctx.stroke();
+    // TODO Colision
+    if(x+r > canvas.width || x-r < 0)
+    {
+        vitesseH = -vitesseH
+    }
+    if(y+r > canvas.height || y-r <0)
+    {
+        vitesseV = -vitesseV
+    }
+    x += vitesseH
+    y += vitesseV
+    /*
+         Rappel la fonction callback un nombre de fois par sacond equivalent au rafraichissement de l'ecran 
+         Et se met en pause quand l'onglet n'est pas actif
+    */
+    requestAnimationFrame(moveCercle)
+}
+
+
+
+// ? ------------------------------------ Image ----------------------------------
+// Je creer un nouvel objet Image
+let img = new Image();
+// Je lui indique la source de l'image 
+img.src= "../../img/Vector.png"
+// J'attend le chargement de l'image 
+img.onload=()=>{
+    // Je dessine l'image : 
+    ctx.drawImage(img,50,250,50,50)
+    snapshot = ctx.getImageData(0,0,canvas.width,canvas.height)
+    moveCercle();
+}
+
+// ? ----------------- Texte ----------------------
+
+ctx.lineWidth = 1;
+// font permet de definir la taille et la police d'ecriture 
+ctx.font = "82px serif"
+// 
+ctx.strokeText("Coucou",500,500);
+ctx.fillText("Salut",500,300);
+// Chage l'alignement du texte 
+ctx.textAlign = "center";
+// On peut ajouter optionellement un dernier parametre pour la largeur 
+ctx.fillText("Salut le monde !",500,100,200);
+
+snapshot = ctx.getImageData(0,0,canvas.width,canvas.height)
+
+// ?---------------- forme des trait ------------------
+ctx.lineWidth = 16;
+
+ctx.beginPath();
+ctx.lineCap = "round"
+ctx.moveTo(700,40);
+ctx.lineTo(700,400);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineCap = "square"
+ctx.moveTo(750,40);
+ctx.lineTo(750,400);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineCap = "butt"
+ctx.moveTo(800,40);
+ctx.lineTo(800,400);
+ctx.stroke();
