@@ -1,0 +1,19 @@
+.divJusteprix{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        height: 10%;
+        border: 1px solid black;
+        background-color: grey;
+        h2{
+            color: red;
+
+        }
+    }
+}
