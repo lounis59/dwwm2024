@@ -1,0 +1,23 @@
+
+.mot{
+    display: flex;
+    .lettresCacher{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 10rem;
+        border-bottom: 4px solid black;
+        margin: 2rem;
+    }
+    span{
+        font-size: 4rem;
+    }
+}
+.lettre{
+    margin-top: 20vh;
+    button{
+        margin: 10px;
+        width: 5rem;
+        height: 2rem;
+    }
+}
