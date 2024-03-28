@@ -6,6 +6,13 @@ const motCacher = document.querySelector('.mot');
 const message = document.querySelector('h1');
 const random = Math.floor(Math.random() * mots.length);
 const mot = mots[random];
+const trait1 = document.querySelector('.trait1');
+const trait2 = document.querySelector('.trait2');
+const trait3 = document.querySelector('.trait3');
+const trait4 = document.querySelector('.trait4');
+const trait5 = document.querySelector('.trait5');
+const trait6 = document.querySelector('.trait6');
+const trait7 = document.querySelector('.trait7');
 let erreurs = 0;
 let trouve = false;
 
@@ -56,7 +63,35 @@ function choix(lettre) {
     if (trouve) {
         message.textContent = "Bravo! Vous avez trouvé le mot : " + mot;
     }
+    if(erreurs == 1){
+        trait1.style.backgroundColor = ""
+    }
+    else if(erreurs == 2){
+        trait2.style.backgroundColor = ""
+    }
+    else if(erreurs == 3){
+        trait3.style.backgroundColor = ""
+    }
+    else if(erreurs == 4){
+        trait4.style.backgroundColor = ""
+    }
+    else if(erreurs == 5){
+        trait5.style.backgroundColor = ""
+    }
+    else if(erreurs == 6){
+        trait6.style.backgroundColor = ""
+    }
+    else if(erreurs == 7){
+        trait7.style.backgroundColor = ""
+    }
 }
+trait1.style.backgroundColor = "transparent"
+trait2.style.backgroundColor = "transparent"
+trait3.style.backgroundColor = "transparent"
+trait4.style.backgroundColor = "transparent"
+trait5.style.backgroundColor = "transparent"
+trait6.style.backgroundColor = "transparent"
+trait7.style.backgroundColor = "transparent"
 
 
 
