@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir" : "dist",
+        "target" : "ESNext",
+        "noEmitOnError" : true,
+        "strict": true
+    },
+    "files":[
+        "src/install.ts",
+        "src/syntax.ts",
+        "src/exercisse.ts",
+        "src/narrowing.ts"
+    ]
+}
