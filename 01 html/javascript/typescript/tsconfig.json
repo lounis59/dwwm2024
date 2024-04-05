@@ -9,6 +9,9 @@
         "src/install.ts",
         "src/syntax.ts",
         "src/exercisse.ts",
-        "src/narrowing.ts"
+        "src/narrowing.ts",
+        "src/alias.ts",
+        "src/class.ts",
+        "src/interfaces.ts"
     ]
 }
