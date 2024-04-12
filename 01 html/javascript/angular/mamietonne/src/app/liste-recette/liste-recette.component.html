@@ -1,0 +1,52 @@
+<p>liste-recette works!</p>
+<p>{{recetteList[0].name}}</p>
+<p>{{recetteList[1].name}}</p>
+<p>{{recetteList[2].name}}</p>
+
+<!-- L'attribut entre crochet = "la valeur a lui donner" -->
+<!-- <a [href]="recetteList[0].name">Exemple</a> -->
+<!-- <a [attr.href]="recetteList[0].name">Exemple</a> -->
+<!-- On peut aussi ajouter ou supprimer des classe selon un boolean -->
+<!-- <div [class.super]="true">Exemple</div> -->
+<!-- Dela meme facon on peut modofier le style  -->
+<!-- <div [style.color]="false?'red':'green'">Exemple</div> -->
+
+<!-- Au clique sur le p j'appelle la fonction 'selectRecette' -->
+<!-- <p (click)="selectRecette(recetteList[0])">{{recetteList[0].name}}</p> -->
+
+<!-- $event permet de passer l'objet "Event" a notre fonction  -->
+<!-- <input type="number" (input)="selectRecette($event)"> -->
+
+<!-- 
+  le "#nom" permet de selectionner un element HTML a l'interieur du HTML meme
+  le "0" pour l'evenement indique qu'il faut ecouter l'evenement mais qu'il n'y a pas de fonction a lancer
+-->
+<!-- <input type="number" #inputRecette (input)="0"> -->
+<!-- <p>{{inputRecette.value}}</p> -->
+
+<input type="number" #inputRecette (keyup.enter)="selectRecette(inputRecette.value)">
+@if(recetteSelected){
+  <p>Vous avez selectionne : {{recetteSelected.name}}</p>
+}@else {
+  <p>Aucune reccte selectionnée</p>
+}
+<p *ngIf="recetteSelected">Vous avez selectionne : {{recetteSelected.name}}</p>
+<p *ngIf="!recetteSelected">Aucune recette selectionner</p>
+<div class="boite">
+  
+  @for (rec of recetteList; track $index) {
+    <div appBorderCard="{{rec.type|typeColor}}" class="card">
+      <h2 [style.backgroundColor]="rec.type|typeColor">{{rec.type}}</h2>
+      <img [src]="'assets/'+rec.image" >
+      <ul>
+        <li><span>Nom : </span>{{rec.name}}</li>
+        <li><span>Durée : </span>{{rec.duration}}</li>
+        <li><span>Desciption : </span>{{rec.description}}</li>
+        <li><span>Crée le : </span>{{rec.createdAt|date:"dd/MM/yyyy"}}</li>
+
+      </ul>
+  
+    </div>
+  }
+</div>
+<p *ngFor="let rec of recetteList"> {{rec.name}}</p>

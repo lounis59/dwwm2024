@@ -1,0 +1,27 @@
+
+<h2>{{recette?.name}} <span [style.backgroundColor]="recette?.type??''|typeColor">{{recette?.type}}</span></h2>
+<p>{{recette?.description}}</p>
+<main>
+    <div class="presentation">
+
+        <img src="../assets/{{recette?.image}}" alt="">
+        <div class="ingredients">
+            <p>Durée : <br>{{recette?.duration}} Minutes </p>
+            <p>ingredients : </p>
+            <ul>
+                @for (rec of recette?.ingredients; track $index) {
+                    <li>{{rec}}</li>
+                }
+            </ul>
+        </div>
+    </div>
+    
+    <div class="etapes">
+        @for (rec of recette?.steps; track $index) {
+            <div class="etape{{$index}}">
+                <h3>Etape {{$index}}</h3>
+                <p>{{rec}}</p>
+            </div>
+        }
+    </div>
+</main>
