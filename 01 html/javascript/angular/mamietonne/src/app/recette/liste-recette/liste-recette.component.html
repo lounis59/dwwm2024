@@ -35,7 +35,7 @@
 <div class="boite">
   
   @for (rec of recetteList; track $index) {
-    <div appBorderCard="{{rec.type|typeColor}}" class="card">
+    <div appBorderCard="{{rec.type|typeColor}}" class="card" (click)="goToRecette(rec)">
       <h2 [style.backgroundColor]="rec.type|typeColor">{{rec.type}}</h2>
       <img [src]="'assets/'+rec.image" >
       <ul>

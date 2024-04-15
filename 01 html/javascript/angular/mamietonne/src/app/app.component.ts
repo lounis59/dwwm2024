@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RECETTES } from './RecetteList';
-import { Recette } from './Recette';
+import { RECETTES } from './recette/RecetteList';
+import { Recette } from './recette/Recette';
 import { CommonModule } from '@angular/common';
-import { BorderCardDirective } from './border-card.directive';
-import { TypeColorPipe } from './type-color.pipe';
+import { BorderCardDirective } from './recette/border-card.directive';
+import { TypeColorPipe } from './recette/type-color.pipe';
 
 @Component({
   selector: 'app-root',

@@ -1,24 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { BorderCardDirective } from '../border-card.directive';
-import { TypeColorPipe } from '../type-color.pipe';
-import { RECETTES } from '../RecetteList';
+// import { BorderCardDirective } from '../border-card.directive';
+// import { TypeColorPipe } from '../type-color.pipe';
+// import { RECETTES } from '../RecetteList';
 import { Recette } from '../Recette';
+import { Router } from '@angular/router';
+import { RecetteService } from '../recette.service';
 
 @Component({
   selector: 'app-liste-recette',
-  standalone: true,
-  imports: [CommonModule, BorderCardDirective, TypeColorPipe],
+  // standalone: true,
+  // imports: [CommonModule, BorderCardDirective, TypeColorPipe],
   templateUrl: './liste-recette.component.html',
   styleUrl: './liste-recette.component.css'
 })
 export class ListeRecetteComponent implements OnInit{
   
     
-    recetteList = RECETTES;
+    recetteList : Recette[]=[];
     recetteSelected: Recette|undefined;
-  
+    constructor(private router:Router, private recetteService:RecetteService){}
     ngOnInit(): void {
+      this.recetteList = this.recetteService.getRecetteList()
       console.table(this.recetteList);
       // this.selectRecette(this.recetteList[0])
     }
@@ -34,5 +37,8 @@ export class ListeRecetteComponent implements OnInit{
       }
       this.recetteSelected = recette;
       
+    }
+    goToRecette(recette:Recette){
+      this.router.navigate(["/recettes",recette.id])
     }
   }

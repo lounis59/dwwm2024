@@ -1,0 +1,18 @@
+<form action="">
+    <div class="form">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" pattern="^[a-zA-Z\sàéèç]{1,50}$">
+        <label for="durée">Durée :</label>
+        <input type="text" id="durée" pattern="^[1-9][0-9]*$">
+        <label for="description">Description :</label>
+        <textarea  id="description" cols="30" rows="10" pattern=".{5,}(\n|.)*"></textarea>
+        <label for="type">Type :</label>
+        <input type="radio"  id="type">
+        <label for="ingredients">Ingredients :</label>
+        <textarea  id="ingredients" cols="30" rows="10" pattern=".{5,}(\n|.)*"></textarea>
+        <label for="steps">Etapes :</label>
+        <textarea  id="steps" cols="30" rows="10" pattern=".{5,}(\n|.)*"></textarea>
+
+    </div>
+    <input type="submit" value="Sauvegarder">
+</form>

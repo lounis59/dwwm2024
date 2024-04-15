@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'typeColor',
-  standalone: true
+  name: 'typeColor'
+  
 })
 export class TypeColorPipe implements PipeTransform {
 
