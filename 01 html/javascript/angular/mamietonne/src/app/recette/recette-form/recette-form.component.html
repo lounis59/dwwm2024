@@ -1,18 +1,37 @@
-<form action="">
+<form *ngIf="recette" (ngSubmit)="onSubmit()" #recetteForm="ngForm">
     <div class="form">
         <label for="nom">Nom :</label>
-        <input type="text" id="nom" pattern="^[a-zA-Z\sàéèç]{1,50}$">
-        <label for="durée">Durée :</label>
-        <input type="text" id="durée" pattern="^[1-9][0-9]*$">
+        <input type="text" name="nom" id="nom" pattern="^[a-zA-Z\sàéèç]{1,50}$" [(ngModel)]="recette.name" #name="ngModel" required="">
+        <div class="error" [hidden]="name.valid || name.pristine">
+            Le nom de la recette est requise (ente 1 et 50 caractères)
+        </div>
+        <label for="durée" >Durée :</label>
+        <input type="text" name="durée" id="durée" pattern="^[1-9][0-9]*$" [(ngModel)]="recette.duration" #duration="ngModel" required="">
+        <div class="error" [hidden]="duration.valid || duration.pristine">
+            La durée de la recette est requise 
+        </div>
         <label for="description">Description :</label>
-        <textarea  id="description" cols="30" rows="10" pattern=".{5,}(\n|.)*"></textarea>
-        <label for="type">Type :</label>
-        <input type="radio"  id="type">
+        <textarea name="description" id="description" cols="30" rows="10" pattern=".{5,}(\n|.)*" [(ngModel)]="recette.description" #description="ngModel" required=""></textarea>
+        <div class="error" [hidden]="description.valid || description.pristine">
+            La description de la recette est requise 
+        </div>
+        <label for="types">Type :</label>
+        <label *ngFor="let t of types" [attr.for]="t">
+            <input type="radio" name="type" id="{{t}}" [value]="t" [checked]="hasType(t)" (change)="selectType($event,t)" required>
+            <span [style.backgroundColor]='t|typeColor'>{{t}}</span>
+        </label>
+        <fieldset>           
+        </fieldset>
         <label for="ingredients">Ingredients :</label>
-        <textarea  id="ingredients" cols="30" rows="10" pattern=".{5,}(\n|.)*"></textarea>
+        <textarea name="ingredients" id="ingredients" cols="30" rows="10" pattern=".{5,}(\n|.)*" [(ngModel)]="ingredientsList" #ingredients="ngModel" required=""></textarea>
+        <div class="error" [hidden]="ingredients.valid || ingredients.pristine">
+            La liste d'ingredients de la recette est requise 
+        </div>
         <label for="steps">Etapes :</label>
-        <textarea  id="steps" cols="30" rows="10" pattern=".{5,}(\n|.)*"></textarea>
-
+        <textarea name="steps" id="steps" cols="30" rows="10" pattern=".{5,}(\n|.)*" #steps = "ngModel" [(ngModel)]="stepsList" required=""></textarea>
+        <div class="error" [hidden]="steps.valid || steps.pristine">
+            La liste d'ingredients de la recette est requise 
+        </div>
     </div>
-    <input type="submit" value="Sauvegarder">
+    <input type="submit" value="Sauvegarder" [disabled]="!recetteForm.form.valid">
 </form>

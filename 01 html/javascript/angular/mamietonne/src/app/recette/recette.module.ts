@@ -9,14 +9,17 @@ import { recetteRoutes } from './recette.routes';
 import { RecetteService } from './recette.service';
 import { EditRecetteComponent } from './edit-recette/edit-recette.component';
 import { RecetteFormComponent } from './recette-form/recette-form.component';
+import { FormsModule } from '@angular/forms';
+import { AddRecetteComponent } from './add-recette/add-recette.component';
 
 
 
 @NgModule({
-  declarations: [ListeRecetteComponent,DetailRecetteComponent,BorderCardDirective,TypeColorPipe, EditRecetteComponent, RecetteFormComponent],
+  declarations: [ListeRecetteComponent,DetailRecetteComponent,BorderCardDirective,TypeColorPipe, EditRecetteComponent, RecetteFormComponent, AddRecetteComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(recetteRoutes)
+    RouterModule.forChild(recetteRoutes),
+    FormsModule
   ],
   providers:[RecetteService]
 })

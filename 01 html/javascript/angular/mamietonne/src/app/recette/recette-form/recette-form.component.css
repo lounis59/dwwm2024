@@ -25,3 +25,10 @@ form{
         height: 50px;
     }
 }
+
+.ng-valid[required]{
+    border: 2px solid green;
+}
+.ng-invalid:not(form){
+    border: 2px solid red;
+}
