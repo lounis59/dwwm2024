@@ -6,6 +6,7 @@
     <title><?php echo $title??"Cours php"?></title>
     <link rel="stylesheet" href="/ressources/style/style.css">
     <script src="/ressources/script/script.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <header>
