@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"]==="POST" && isset($_POST["inscription"])){
     }
     else{
         $username = cleanData($_POST["username"]);
-        if(!preg_match("/^[a-zA-Z'\s-]{2-25}$/",$username))
+        if(!preg_match("/^[a-zA-Z'\s-]{2,25}$/",$username))
         {
             $error["username"] = "Veuillez saisir un nom d'utilisateur valide";
         }

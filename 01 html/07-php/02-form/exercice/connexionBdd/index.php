@@ -1,20 +1,17 @@
-<?php
-session_start([
-    "cookie_lifetime"=>3600
-]);
-/* 
-    Si l'utilisateur est dejat connecte il ne devrait plus avoir acces a la page de connexion 
-    Je verifie donc si il est connecte en verifiant si en session il y a la clef que j'ajouterait au moment de la connexion 
+<?php 
+session_start();
+require "../../../ressources/service/_pdo.php";
 
-    Si elle est presente je le redirige vers une autre page 
-*/
+$pdo = connexionPDO();
+
+
+
 if(isset($_SESSION["logged"]) && $_SESSION["logged"]===true)
 {
     header("Location: /");
     exit;
 }
-$email = $pass = "";
-$error = [];
+
 
 if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['login']))
 {
@@ -30,22 +27,18 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['login']))
         $pass = trim($_POST['password']);
     }
     if(empty($error)){
-        /* 
-            Normalement on aurait a verifier si notre email existe en BDD
-            Mais comme on n'a pas encore vue cela ici on se contentera de recuperer les information d'un fichier 
+                /* 
+            Ma requête ne contient aucune données rentrée par l'utilisateur
+            Je n'ai donc pas besoin de requête préparée.
+            J'utiliserais donc la methode "query" qui est executé directement.
         */
-        $user = file_get_contents("../ressources/user.json");
+        $sql = $pdo->prepare("SELECT * FROM users WHERE email=:em");
+        $sql->execute(["em"=>$email]);
         /* 
-            Ici nous recuperont le contenue d'un fichier json 
-            Il va donc faloir le decoder pour php
-            On utilisera :
-                json_decode();
-            On utilisera pas ici mais l'inverce est :
-                json_encode();
+            Lorsque ma requête attend plusieurs résultats.
+            J'utiliserais "fetchAll()" au lieu de "fetch()"
         */
-        $user = json_decode($user,true);
-        // Je vais ensuite verifier si j'ai un utilisateur entrer dans le formulaire :
-        $user = $user[$email]?? false;
+        $user = $sql->fetch();
 
         if($user){
             /* 
@@ -64,6 +57,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['login']))
                 */
                 $_SESSION["logged"] = true;
                 $_SESSION["username"] = $user["username"];
+                $_SESSION["idUser"] = $user["idUser"];
                 $_SESSION["expire"] = time()+3600;
                 // Il ne me reste plus qu'a le rediriger sur la page souhaite :
                 header("location: /");
@@ -80,9 +74,8 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['login']))
 }
 
 $title = " Connexion ";
-require("../ressources/template/_header.php");
+require("../../../ressources/template/_header.php");
 ?>
-
 <form action="" method="post">
     <label for="email">Email</label>
     <input type="email" name="email" id="email">
@@ -98,6 +91,3 @@ require("../ressources/template/_header.php");
     <br>
     <span class="error"><?php echo $error["login"]??""; ?></span>
 </form>
-<?php
-require("../ressources/template/_footer.php");
-?>

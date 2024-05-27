@@ -46,8 +46,9 @@ function connexionPDO(): \PDO
             $dsn,
             $config["user"],
             $config["password"],
-            $config["option"]
+            $config["options"]
         );
+        return $pdo;
     }catch(\PDOException $e){
         /* 
             Pour les erreur de type "exception"
