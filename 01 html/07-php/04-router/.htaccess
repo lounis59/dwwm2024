@@ -1,0 +1,10 @@
+# Le fichier .htaccess est lu a chaque requete et permet de modifier celle ci 
+# En premier on active l'outil de recriture d'url :
+RewriteEngine On
+# On va conditionner notre reecriture pour que toute les adresse ne soit pas reecrite
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.jpg)$
+# J'applique ma regle de reecriture :
+RewriteRule (.*) index.php [QSA,L]
+# Flag : [QSA,L]
+# QSA permet de garder les parametre envoyer en get actif
+# L indique que c'est la derniere regle a etre appliquer 

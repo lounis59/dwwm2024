@@ -9,7 +9,8 @@ if(isset($_POST["message"]))
     $pdo = connexionPDO();
     $newMessage = $pdo->prepare("INSERT INTO message ( message, idUser) VALUES ( :mess, :id)");
     $newMessage->execute(["mess"=>$_POST["message"],"id"=>$_SESSION["idUser"]]);
-    header("Location: ./read.php");
+    $_SESSION["flash"] = "Votre message a bien eter creer";
+    header("Location: ./read.php?id=".$_SESSION["idUser"]);
 
 }
 ?>
