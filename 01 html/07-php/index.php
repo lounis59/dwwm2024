@@ -127,7 +127,7 @@ require "./ressources/template/_header.php";
                     <h4>Exercice :</h4>
                     <ul>
                         <li>
-                        <a href="./05-mvc/connexion">Connexion</a>
+                        <a href="./05-mvc/user/connexion">Connexion</a>
                     </li>
                     <li>
                         <a href="./05-mvc/deconnexion">Déconnexion</a>
