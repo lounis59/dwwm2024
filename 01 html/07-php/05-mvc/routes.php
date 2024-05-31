@@ -24,9 +24,17 @@ const ROUTES = [
         "controller"=>"authController.php",
         "fonction"=>"userConnexion"
     ],
-    "05-mvc/user/newMessage"=>[
+    "05-mvc/user/messageCreate"=>[
         "controller"=>"messageController.php",
         "fonction"=>"createMessage"
+    ],
+    "05-mvc/user/messageRead"=>[
+        "controller"=>"messageController.php",
+        "fonction"=>"readMessage"
+    ],
+    "05-mvc/user/messageUpdate"=>[
+        "controller"=>"messageController.php",
+        "fonction"=>"updateMessage"
     ]
 ];
 ?>
