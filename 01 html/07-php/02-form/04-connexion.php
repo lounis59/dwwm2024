@@ -19,7 +19,7 @@ $error = [];
 if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['login']))
 {
     if(empty($_POST['email'])){
-        $error['email'] = "Veuillez entrez un email";
+        $error['email'] = "Veuillez entrez un email"; 
     }else{
         $email = trim($_POST['email']);
     }

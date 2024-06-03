@@ -1,13 +1,14 @@
-<?php
+<?php 
 use MongoDB\BSON\ObjectId;
 use MongoDB\Driver\Query;
 use MongoDB\Driver\Manager;
 /**
- * Retourne un manage de connexion a une bdd mongo
- * 
+ * Retourne un manager de connexion à une BDD mongo
+ *
  * @return Manager
  */
-function connexionManager():Manager{
+function connexionMongo(): Manager
+{
     $config = require __DIR__."/../config/_mongoConfig.php";
     /* 
         Le dsn de mongo prend la forme suivante :
@@ -21,7 +22,57 @@ function connexionManager():Manager{
         return $mongo;
     }catch(Exception $e)
     {
-        echo "Exeption reçue : {$e->getMessage()}";
+        echo "Exception reçue : {$e->getMessage()}";
     }
+}
+/**
+ * Recupère le résultat d'une requête.
+ *
+ * @param string $collection nom de la collection (table)
+ * @param Query $query  query à executer
+ * @param string $idName nom de l'id dans la collection
+ * @param boolean $one true si on veut un seul résultat
+ * @return array
+ */
+function queryResult(string $collection, Query $query, string $idName, bool $one = false): array
+{
+    global $mongo;
+    // Execute une collection en premier argument la requete en second argument 
+    $cursor = $mongo->executeQuery($collection, $query);
+    // Je definie sous quelle forme les resultat doit etre afficher 
+    $cursor->setTypeMap(["root"=>"array"]);
+    // Je recupere le resultat sous forme de tableau
+    $result = $cursor->toArray();
+    // Change l'objet id en string
+    $betterResult = setId($result, $idName);
+    // Si $one vaut true et que j'ai au moins un resultat je retourne le premier resultat uniquement  
+    if($one && count($result)) return $betterResult[0];
+    // Sinon je retourne tout
+    return $betterResult;
+}
+/**
+ * Traduit l'id en string utilisable 
+ * (par défaut les id de mongoDB sont des objets)
+ *
+ * @param array $result résultat de la requête
+ * @param string $idName nom de l'id
+ * @return array
+ */
+function setID(array $result, string $idName): array
+{
+    for($i = 0;$i< count($result); $i++){
+        $result[$i][$idName] = (string)$result[$i]["_id"];
+    }
+    return $result;
+}
+/**
+ * Transforme l'id en ObjectId
+ *
+ * @param string|integer $id
+ * @return ObjectId
+ */
+function getId(string|int $id): ObjectId
+{
+    return new ObjectId((string)$id);
 }
 ?>
