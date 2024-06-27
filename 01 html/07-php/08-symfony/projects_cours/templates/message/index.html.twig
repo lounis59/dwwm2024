@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessageController!{% endblock %}
+
+{% block body %}
+<div class="pagination">
+    {% if currentPage > 1 %}
+        <a href="{{ path("app_message_read",{nb:nombre, page:1})}}">premiere</a>
+        <a href="{{ path("app_message_read",{nb:nombre, page:currentPage - 1})}}">precedent</a>
+    {% endif %}
+    {% for i in range(1, nbPage) %}
+        <a href="{{ path("app_message_read",{nb:nombre, page:i})}}">{{i}}</a>
+        
+    {% endfor %}
+    {% if currentPage < nbPage %}
+        <a href="{{ path("app_message_read",{nb:nombre, page:currentPage + 1})}}">suivant</a>
+        <a href="{{ path("app_message_read",{nb:nombre, page:nbPage})}}">derniere</a>
+
+    {% endif %}
+    
+    
+</div>
+{% for mess in messages %}
+<div class="message">
+    <div class="date1">
+        Ajouté le {{mess.createdAt | date("d/m/Y")}}
+    </div>
+    <div class="date2">
+        {{mess.editedAt ? "edite le :"~mess.editedAt|date("d/m/Y") : ""}} 
+    </div>
+    <p>
+    {{mess.content}}
+    {% if mess.image %}
+    <img src="{{ asset('uploads/messages/'~mess.image)}}" alt="image accompagnet le message">{% endif %}
+    
+    </p>
+    <div class="btns">
+    {# Todo : Nous ajouterons les diferent boutons plus tard #}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

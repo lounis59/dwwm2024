@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<form method="post">
+<select name="cat" id="">
+<option value="Sport">Sport</option>
+<option value="Menage">Menage</option>
+<option value="Travail">Travail</option>
+</select>
+<label for="task">Entrer votre tache</label>
+<input type="text"  id="task" name="task">
+<input type="submit" value="envoyer">
+</form>
+{% for cat,tasks in app.session.get("task") %}
+    {% for task in tasks %}
+        <div>
+         <h2>{{cat}}</h2>
+         <p>{{task}}</p>
+        </div>
+    {% endfor %}
+{% endfor %}
+{% endblock %}
